@@ -1,5 +1,7 @@
 import logging
+import os
 
+import facebook
 import shopify
 
 from django.conf import settings
@@ -49,11 +51,14 @@ def shopify_connected(request):
 @shop_login_required
 def shopify_demo(request):
     """Renders the view for the Shopify demo."""
-    shopify_session = shopify.Session(request.session['shopify']['shop_url'])
-    shopify_session.token = request.session['shopify']['access_token']
-    shopify.ShopifyResource.activate_session(shopify_session)
     products = shopify.Product.find()
+
+    api = facebook.AdsAPI(
+        os.environ['FACEBOOK_ACCESS_TOKEN'],
+        settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
+    ad_stats = api.get_stats_by_adaccount('16565898')
 
     return render_to_response('shopify_demo.html', {
         'products': products,
+        'ad_stats': ad_stats['data'],
     }, context_instance=RequestContext(request))

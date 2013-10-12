@@ -16,3 +16,11 @@ div.jumbotron h1 {
 div.jumbotron a#hack {
   margin-top: 20px;
 }
+
+table#ad-stats th {
+  text-align: right;
+}
+
+table#ad-stats th.text-left {
+  text-align: left;
+}

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load humanize %}
 {% load tags %}
 
 {% block content %}
@@ -6,7 +7,7 @@
   <div id="shopify-demo" class="container">
     <div class="page-header">
       <h1>{{ current_shop.name }}</h1>
-      <p class="lead">This page is connected with Shopify.</p>
+      <p class="lead">Advertise products from your Shopify store on Facebook.</p>
     </div>    
     <section id="products">
       <h3>Products</h3>
@@ -20,12 +21,58 @@
               <div class="caption">
                 <h4>{{ product.title }}</h4>
                 <p>{{ product.price_range|currency:current_shop.currency }}</p>
-                <p><a class="btn btn-primary" href="#">Advertise</a></p>
+                <p><button class="btn btn-primary" data-toggle="modal" data-target="#modal">Advertise</button></p>
               </div>
             </div>
           </div>
         {% endfor %}
       </div>
+      <!-- Modal -->
+      {% include "modal.html" %}
+    </section>
+    <hr />
+    <section id="campaigns">
+      <h3>Ad Statistics</h3>
+      <table class="table table-striped" id="ad-stats">
+        <thead>
+          <tr>
+            <th class="text-left">Campaign</th>
+            <th>Impressions</th>
+            <th>Clicks</th>
+            <th><span class="glyphicon glyphicon-camera"></span></th>
+            <th><span class="glyphicon glyphicon-facetime-video"></span></th>
+            <th><span class="glyphicon glyphicon-thumbs-up"></span></th>
+            <th><span class="glyphicon glyphicon-eye-open"></span></th>
+            <th><span class="glyphicon glyphicon-leaf"></span></th>
+            <th><span class="glyphicon glyphicon-link"></span></th>
+            <th><span class="glyphicon glyphicon-upload"></span></th>
+            <th><span class="glyphicon glyphicon-shopping-cart"></span></th>
+            <th><span class="glyphicon glyphicon-usd"></span></th>
+          </tr>
+        </thead>
+        <tbody class="text-right">
+          {% for ad_stat in ad_stats %}
+            {% if ad_stat.is_completed == False %}
+              <tr>
+                <td class="text-left">
+                  <a href="#">{{ ad_stat.campaign_id }}</a>
+                </td>
+                <td>{{ ad_stat.impressions|intcomma }}</td>
+                <td>{{ ad_stat.clicks|intcomma }}</td>
+                <td>{{ ad_stat.actions.photo_view|intcomma }}</td>
+                <td>{{ ad_stat.actions.video_play|intcomma }}</td>
+                <td>{{ ad_stat.actions.post_like|intcomma }}</td>
+                <td>{{ ad_stat.actions.offsite_conversion.key_page_view|intcomma }}</td>
+                <td>{{ ad_stat.actions.offsite_conversion.lead|intcomma }}</td>
+                <td>{{ ad_stat.actions.link_click|intcomma }}</td>
+                <td>{{ ad_stat.actions.post|intcomma }}</td>
+                <td>{{ ad_stat.actions.offsite_conversion.add_to_carts|intcomma }}</td>
+                <td>{{ ad_stat.actions.offsite_conversion.checkouts|intcomma }}</td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
     </section>
   </div>
     

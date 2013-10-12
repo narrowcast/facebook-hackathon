@@ -22,7 +22,6 @@ def active(path, url):
 
 @register.filter
 def currency(value, currency):
-    print value, currency
     """Returns the formatted currency."""
     symbol = SUPPORTED_CURRENCIES[currency]['symbol']
     offset = SUPPORTED_CURRENCIES[currency]['offset']
