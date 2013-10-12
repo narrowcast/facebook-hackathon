@@ -6,3 +6,13 @@ body {
 footer {
   padding-bottom: 30px;
 }
+
+div.jumbotron h1 {
+  font-family: "Helvetica Neue", "MS PGothic", "Apple SD Gothic Neo";
+  margin-bottom: 30px;
+  line-height: 63px;
+}
+
+div.jumbotron a#hack {
+  margin-top: 20px;
+}

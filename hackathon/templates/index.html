@@ -5,10 +5,10 @@
     <div class="container">
       <div class="row">
         <div class="col-md-5">
-          <h1>Hello, Asia!</h1>
+          <h1><span id="hello">안녕</span>, Asia!</h1>
           <p>We are Narrowcast from Seoul, Korea.</p>
           <p>Here are the three hacks we have built for the first Facebook Hackathon in Asia!</p>
-          <p><a class="btn btn-primary btn-lg" href="{% url 'advertise' %}">Let's hack »</a></p>          
+          <p><a class="btn btn-primary btn-lg" id="hack" href="{% url 'advertise' %}">Let's hack »</a></p>
         </div>
         <div class="col-md-7">
           <img class="profile" src="https://dgbj9gecyz1h5.cloudfront.net/static/img/yoon.png" />
@@ -43,4 +43,24 @@
 {% endblock %}
 
 {% block script %}
+  <script type="text/javascript">
+    var index = 0;
+    var hello = ["안녕", "Hello", "你好", "元気", "नमस्ते", "สวัสดี", "Apa khabar", "Chào", "مرحبًا"];
+
+    function sayHello() {
+      if (++index >= hello.length) {
+        index = 0;
+      }
+      if (hello[index].length > 6) {
+        $("h1").css({'font-size': '45px'});
+      } else {
+        $("h1").css({'font-size': '63px'});
+      }
+      $("#hello").text(hello[index]);
+    };
+
+    jQuery(document).ready(function() {
+      setInterval(function(){sayHello()}, 2000);
+    });
+  </script>
 {% endblock %}

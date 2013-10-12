@@ -20,7 +20,7 @@
         <div class="col-md-3">
           <h4>3. Advertise</h4>
           <p>Edit creative, audience, and budget and create video post ad on Facebook.</p>
-        </div>        
+        </div>
       </div>
     </section>
     <hr />
@@ -28,84 +28,17 @@
       <h3>Demo</h3>
       <form class="form-horizontal" role="form">
         <div class="form-group">
-          <label class="col-lg-1 control-label" for="exampleInputEmail2">URL</label>
-          <div class="col-lg-4">
+          <label class="col-md-1 control-label" for="exampleInputEmail2">URL</label>
+          <div class="col-md-4">
             <input type="url" class="form-control" id="exampleInputEmail2" placeholder="Enter link for a YouTube or Vimeo video">
           </div>
-          <div class="col-lg-1">
+          <div class="col-md-1">
             <button type="submit" class="btn btn-primary">Get Started</button>
           </div>
         </div>
-      </form>      
+      </form>
       <div class="example example-modal">
-        <!-- Modal -->
-        <div class="modal fade" id="advertise" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Advertise on Facebook</h4>
-              </div>
-              <div class="modal-body">
-                <div class="preview">
-                  <h4>Creative</h4>
-                  <div class="row">
-                    <div class="col-md-1">
-                      <img class="profile" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/592281_163296720497064_55591213_q.jpg" />
-                    </div>
-                    <div class="col-md-10">
-                      <h5><a href="http://www.sthsweet.com/">Somethin' Sweet</a></h5>
-                      <p>
-                        New products in five different styles uploaded everyday, with summer styles also available year-round!
-                        Come take a look, there's somethin' sweet for every girl :)
-                      </p>
-                      <img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-prn2/p480x480/1380316_229148063911929_1627901287_n.jpg" />
-                      <div class="well">
-                        <a href="http://www.sthsweet.com/">Somethin' Sweet</a>
-                        <p class="caption">www.sthsweet.com</p>
-                        <p class="description">Shop according to your taste with our five different Korean fashion brands!</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <hr>
-                <div class="audience">
-                  <h4>Audience</h4>
-                  <div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                        Optimized by Vimote (recommended) <a href="#"><sup>?</sup></a>
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                        Fans and their friends <a href="#"><sup>?</sup></a>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <hr>
-                <div class="budget">
-                  <h4>Budget</h4>
-                  <select class="form-control">
-                    <option>Optmized (recommended)</option>
-                    <option>$50</option>
-                    <option>$200</option>
-                    <option>$500</option>
-                    <option>$1,000</option>
-                    <option>Choose Your Own</option>
-                  </select>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Advertise</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>              
-              </div>
-            </div><!-- /.modal-content -->
-          </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+        {% include "modal.html" %}
       </div>
     </section>
   </div>
