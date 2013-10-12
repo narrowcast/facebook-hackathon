@@ -5,7 +5,11 @@ import shopify
 from django.conf import settings
 from django.contrib import messages
 from django.core.urlresolvers import reverse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render_to_response
+from django.template import RequestContext
+
+from hackathon.decorators import shop_login_required
+
 
 logger = logging.getLogger(__name__)
 shopify.Session.setup(
@@ -38,6 +42,18 @@ def shopify_connected(request):
         "access_token": shopify_session.token
     }
     messages.info(request, "Logged in to shopify store.")
-
-    response = redirect(reverse('shopify'))
+    response = redirect(reverse('shopify_demo'))
     return response
+
+
+@shop_login_required
+def shopify_demo(request):
+    """Renders the view for the Shopify demo."""
+    shopify_session = shopify.Session(request.session['shopify']['shop_url'])
+    shopify_session.token = request.session['shopify']['access_token']
+    shopify.ShopifyResource.activate_session(shopify_session)
+    products = shopify.Product.find()
+
+    return render_to_response('shopify_demo.html', {
+        'products': products,
+    }, context_instance=RequestContext(request))

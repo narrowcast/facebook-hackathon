@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load tags %}
+
+{% block content %}
+
+  <div id="shopify-demo" class="container">
+    <div class="page-header">
+      <h1>{{ current_shop.name }}</h1>
+      <p class="lead">This page is connected with Shopify.</p>
+    </div>    
+    <section id="products">
+      <h3>Products</h3>
+      <div class="row">
+        {% for product in products %}
+          <div class="col-md-3">
+            <div class="product thumbnail" id="{{ product.id }}">
+              {% if product.image %}
+                <img src="{{ product.image.large }}" />
+              {% endif %}
+              <div class="caption">
+                <h4>{{ product.title }}</h4>
+                <p>{{ product.price_range|currency:current_shop.currency }}</p>
+                <p><a class="btn btn-primary" href="#">Advertise</a></p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+    
+{% endblock %}

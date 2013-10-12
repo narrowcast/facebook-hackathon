@@ -20,6 +20,7 @@ urlpatterns = patterns(
     url(r'^shopify/connect/$', views.shopify_connect, name='shopify_connect'),
     url(r'^shopify/connected/$', views.shopify_connected,
         name='shopify_connected'),
+    url(r'^shopify/demo/$', views.shopify_demo, name='shopify_demo'),
     # url(r'^hackathon/', include('hackathon.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
