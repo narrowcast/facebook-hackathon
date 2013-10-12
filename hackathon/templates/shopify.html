@@ -7,6 +7,35 @@
       <h1>Shopify App for Facebook Advertising</h1>
       <p class="lead">Advertise your product on Facebook with Shopify.</p>
     </div>
+    <section id="concept">
+      <h3>Concept</h3>
+      <div class="row">
+        <div class="col-md-3">
+          <h4>1. Connect</h4>
+          <p>Connect your Shopify store to the Vimote Shopify app and Vimote Facebook app.</p>
+        </div>
+        <div class="col-md-3">
+          <h4>2. Advertise</h4>
+          <p>Create Facebook Page Post Link Ads directly from your product listing.</p>
+        </div>
+        <div class="col-md-3">
+          <h4>3. Analyze</h4>
+          <p>Analyze which advertisements are giving you the best return on investment.</p>
+        </div>
+        <div class="col-md-3">
+          <h4>4. Optimize</h4>
+          <p>Automatically optimize targeting and budget according to the ad performance.</p>
+        </div>
+      </div>
+    </section>
+    <hr />
+    <section id="demo">
+      <h3>Demo</h3>
+      <form action="{% url 'shopify_connect' %}" method="post">
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" value="Connect" />
+      </form>
+    </section>
   </div>
     
 {% endblock %}

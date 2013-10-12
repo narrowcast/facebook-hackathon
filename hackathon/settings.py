@@ -170,3 +170,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
 )
+
+# Shopify
+SHOPIFY_API_KEY = os.environ.get('SHOPIFY_API_KEY')
+SHOPIFY_API_SECRET = os.environ.get('SHOPIFY_API_SECRET')
+SHOPIFY_API_SCOPE = ['read_products', 'read_orders', 'write_script_tags']
