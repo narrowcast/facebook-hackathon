@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <h1>Hello, Asia!</h1>
+          <p>We are Narrowcast from Seoul, Korea.</p>
+          <p>Here are the three hacks we have built for the first Facebook Hackathon in Asia!</p>
+          <p><a class="btn btn-primary btn-lg">Let's hack »</a></p>
+        </div>
+        <div class="col-md-7">
+          <img class="profile" src="https://dgbj9gecyz1h5.cloudfront.net/static/img/yoon.png" />
+          <img class="profile" src="https://dgbj9gecyz1h5.cloudfront.net/static/img/hyeon.png" />
+          <img class="profile" src="https://dgbj9gecyz1h5.cloudfront.net/static/img/kim.png" />
+          <img class="profile" src="https://dgbj9gecyz1h5.cloudfront.net/static/img/park.png" />
+          <img class="profile" src="https://dgbj9gecyz1h5.cloudfront.net/static/img/hwang.png" />
+          <img class="profile" src="https://dgbj9gecyz1h5.cloudfront.net/static/img/hong.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Advertise Button</h2>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p><a class="btn btn-default" href="{% url 'advertise' %}">View details »</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Shopify App</h2>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p><a class="btn btn-default" href="{% url 'shopify' %}">View details »</a></p>
+     </div>
+      <div class="col-md-4">
+        <h2>Video Post Ad</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn btn-default" href="{% url 'video' %}">View details »</a></p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

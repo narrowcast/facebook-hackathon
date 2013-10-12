@@ -1,0 +1,66 @@
+{% load staticfiles %}
+{% load tags %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta author="Narrowcast, Inc.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static "css/application.css" %}">
+    <title>Narrowcast - Facebook Hackathon in Asia</title>
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static "img/narrowcast.png" %}" /></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="{% active request.path 'home' %}">
+              <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="{% active request.path 'advertise' %}">
+              <a href="{% url 'advertise' %}">Advertise Button</a>
+            </li>
+            <li class="{% active request.path 'shopify' %}">
+              <a href="{% url 'shopify' %}">Shopify App</a>
+            </li>
+            <li class="{% active request.path 'video' %}">
+              <a href="{% url 'video' %}">Video Post Ad</a>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    
+    {% block content %}
+    {% endblock %}
+    
+    <hr />
+    <footer class="container">
+      <p>© 2013 Narrowcast, Inc. All rights reserved.</p>
+    </footer>
+    
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=301311863329400";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    {% block script %}
+    {% endblock %}
+  </body>
+</html>
