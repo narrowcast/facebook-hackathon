@@ -7,17 +7,6 @@ footer {
   padding-bottom: 30px;
 }
 
-.editable-click,
-a.editable-click,
-a.editable-click:hover {
-  text-decoration: none;
-  border-bottom: none;
-}
-
-a.editable-click:hover {
-  background: yellow;
-}
-
 div.jumbotron {
   h1 {
     font-family: "Helvetica Neue", "MS PGothic", "Apple SD Gothic Neo";
@@ -76,7 +65,8 @@ div#modal {
     }
   }
   .well {
-      border-radius: 0px;
+    width: 100%;
+    border-radius: 0px;
   }
 }
 
@@ -98,6 +88,5 @@ div.ad_thumbnail_box {
 
   .ad_thumbnail {
     width: 100%;
-
   }
 }

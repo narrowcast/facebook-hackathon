@@ -20,19 +20,19 @@
               <img class="ad_profile" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/592281_163296720497064_55591213_q.jpg" />
             </div>
             <div class="col-md-10">
-              <h5><a class="ad_headline editable" data-type="text">Somethin' Sweet</a></h5>
-              <a class="ad_text editable" data-type="textarea">New products in five different styles uploaded everyday, with summer styles also available year-round! Come take a look, there's somethin' sweet for every girl :)</a>
+              <h5 class="page-name">Page name placeholder</h5>
+              <p class="text editable" data-type="textarea"></p>
               <div class="ad_thumbnail_box">
                 <div class="ad_thumbnail_box_controls">
                   <button class="btn btn-default btn-sm btn-left"><span class="glyphicon glyphicon-chevron-left"></span></button>
                   <button class="btn btn-default btn-sm btn-right"><span class="glyphicon glyphicon-chevron-right"></span></button>
                 </div>
-                <img class="ad_thumbnail" src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-prn2/p480x480/1380316_229148063911929_1627901287_n.jpg" />
+                <img class="ad_thumbnail" src="" />
               </div>
               <div class="well">
-                <p><a class="headline editable" data-type="text">Somethin' Sweet</a></p>
-                <p class="caption editable" data-type="text">www.sthsweet.com</p>
-                <p class="description editable" data-type="textarea">Shop according to your taste with our five different Korean fashion brands!</p>
+                <p><a class="headline editable" data-type="text"></a></p>
+                <p class="caption editable" data-type="text"></p>
+                <p class="description editable" data-type="textarea">Description placeholder</p>
               </div>
             </div>
           </div>
@@ -70,55 +70,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary">Advertise</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>              
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-{# {% include "sweet.html" %} #}
-
-{% block script %}
-  <script src="//code.jquery.com/jquery.js"></script>
-  <script type="text/javascript">
-  $(document).ready(function() {
-  
-    var images = $('img')
-    var cur_index = 0;
-    
-    // Turn to inline mode
-    // $.fn.editable.defaults.mode = 'inline';
-    // Make elements editable with X-editable
-    $('.editable').editable();
-       
-    function changeThumbnail(index) {
-      $('img.ad_thumbnail').attr('src', images[index]['src']);
-    }
-    
-    // todo: set ad headline
-  
-    // todo: set ad text
-  
-    // set ad preview thumbnail
-    if (images.length > 0) {
-      changeThumbnail(cur_index);    
-    }
-    
-    // todo: set site domain
-  
-  
-    $('.btn-left').click(function(){
-      if (cur_index > 0) {
-        changeThumbnail(--cur_index);
-      };
-    });  
-    $('.btn-right').click(function(){
-      if (cur_index < images.length) {
-        changeThumbnail(++cur_index);
-      };
-    });
-  
-  
-  });
-  </script>
-{% endblock %}
