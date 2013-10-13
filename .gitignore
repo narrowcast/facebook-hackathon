@@ -1,5 +1,6 @@
 venv
 .env
+.sass-cache
 .DS_Store
 *.log
 *.pot

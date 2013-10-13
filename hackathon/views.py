@@ -9,13 +9,28 @@ from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
+from django.views.generic import TemplateView
 
 from hackathon.decorators import shop_login_required
 
-
 logger = logging.getLogger(__name__)
-shopify.Session.setup(
-    api_key=settings.SHOPIFY_API_KEY, secret=settings.SHOPIFY_API_SECRET)
+
+
+class AdvertiseView(TemplateView):
+    """View for rendering the advertise button page."""
+    template_name = 'advertise.html'
+
+    def get_context_data(self, **kwargs):
+        """Set the user pages data in the context."""
+        context = super(AdvertiseView, self).get_context_data(**kwargs)
+        api = facebook.AdsAPI(
+            os.environ['FACEBOOK_ACCESS_TOKEN'],
+            settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
+        user_pages = api.get_user_pages(
+            '16565898',
+            ['category', 'name', 'picture', 'likes', 'access_token'])
+        context.update({'user_pages': user_pages,})
+        return context
 
 
 def shopify_connect(request):

@@ -10,8 +10,7 @@ from hackathon import views
 urlpatterns = patterns(
     '',
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
-    url(r'^advertise/$', TemplateView.as_view(template_name='advertise.html'),
-        name='advertise'),
+    url(r'^advertise/$', views.AdvertiseView.as_view(), name='advertise'),
     url(r'^shopify/$', TemplateView.as_view(template_name='shopify.html'),
         name='shopify'),
     url(r'^video/$', TemplateView.as_view(template_name='video.html'),
@@ -21,6 +20,7 @@ urlpatterns = patterns(
     url(r'^shopify/connected/$', views.shopify_connected,
         name='shopify_connected'),
     url(r'^shopify/demo/$', views.shopify_demo, name='shopify_demo'),
+
     # url(r'^hackathon/', include('hackathon.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

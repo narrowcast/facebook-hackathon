@@ -1,26 +1,55 @@
+/* line 1, ../scss/application.scss */
 body {
   position: relative;
   padding-top: 50px;
 }
 
+/* line 6, ../scss/application.scss */
 footer {
   padding-bottom: 30px;
 }
 
+/* line 11, ../scss/application.scss */
 div.jumbotron h1 {
   font-family: "Helvetica Neue", "MS PGothic", "Apple SD Gothic Neo";
   margin-bottom: 30px;
   line-height: 63px;
 }
 
+/* line 19, ../scss/application.scss */
 div.jumbotron a#hack {
   margin-top: 20px;
 }
 
+/* line 25, ../scss/application.scss */
 table#ad-stats th {
   text-align: right;
 }
-
+/* line 28, ../scss/application.scss */
 table#ad-stats th.text-left {
   text-align: left;
+}
+
+/* line 33, ../scss/application.scss */
+.example-modal {
+  position: relative;
+  padding: 45px 15px 15px;
+  margin: 0 -15px 15px;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: #f5f5f5;
+  border-width: 1px;
+  border-color: #ddd;
+  border-radius: 4px 4px 0 0;
+  box-shadow: none;
+}
+/* line 45, ../scss/application.scss */
+.example-modal .modal {
+  position: relative;
+  top: auto;
+  right: auto;
+  left: auto;
+  bottom: auto;
+  z-index: 1;
+  display: block;
 }

@@ -1,0 +1,62 @@
+body {
+  position: relative;
+  padding-top: 50px;
+}
+
+footer {
+  padding-bottom: 30px;
+}
+
+div.jumbotron {
+  h1 {
+    font-family: "Helvetica Neue", "MS PGothic", "Apple SD Gothic Neo";
+    margin-bottom: 30px;
+    line-height: 63px;
+  }
+}
+
+div.jumbotron {
+  a#hack {
+    margin-top: 20px;
+  }
+}
+
+table#ad-stats {
+  th {
+    text-align: right;
+  }
+  th.text-left {
+    text-align: left;
+  }
+}
+
+.example-modal {
+  position: relative;
+  padding: 45px 15px 15px;
+  margin: 0 -15px 15px;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: #f5f5f5;
+  border-width: 1px;
+  border-color: #ddd;
+  border-radius: 4px 4px 0 0;
+  box-shadow: none;
+
+  .modal {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    z-index: 1;
+    display: block;
+  }
+}
+
+div#modal {
+  div.preview {
+    img.profile {
+      
+    }
+  }
+}
