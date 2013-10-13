@@ -60,6 +60,12 @@ def shopify_connected(request):
         "shop_url": shop_url,
         "access_token": shopify_session.token
     }
+    # Activate session and install script tag at this point
+    shopify.ShopifyResource.activate_session(shopify_session)
+    script_tag = shopify.ScriptTag()
+    script_tag.event = 'onload'
+    script_tag.src = '//hack.vimote.com/static/js/shopify.js'
+
     messages.info(request, "Logged in to shopify store.")
     response = redirect(reverse('shopify_demo'))
     return response
