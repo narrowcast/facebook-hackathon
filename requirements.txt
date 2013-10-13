@@ -3,7 +3,7 @@ PyYAML==3.10
 ShopifyAPI==1.0.7
 dj-database-url==0.2.2
 dj-static==0.0.5
-facebook-ads-api==0.1.8
+facebook-ads-api==0.1.9
 gunicorn==18.0
 psycopg2==2.5.1
 pyactiveresource==1.0.2
