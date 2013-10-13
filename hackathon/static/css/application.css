@@ -53,3 +53,8 @@ table#ad-stats th.text-left {
   z-index: 1;
   display: block;
 }
+
+/* line 58, ../scss/application.scss */
+div#modal div.page-typeahead img {
+  float: left;
+}

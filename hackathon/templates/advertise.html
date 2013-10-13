@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+{% load tags %}
 
 {% block content %}
   <div class="container">
@@ -29,7 +31,6 @@
     </section>
     <hr />
     <section id="demo">
-      {{ user_pages }}
       <h3>Demo</h3>
       <button type="button" data-toggle="modal" data-target="#modal" class="btn btn-primary">Advertise</button>
       <div class="example example-modal">
@@ -80,4 +81,25 @@
       <button type="button" class="btn btn-primary">Get Code</button>
     </section>
   </div>
+{% endblock %}
+
+{% block script %}
+  <script src="{% static "js/hogan-2.0.0.min.js" %}"></script>
+  <script src="{% static "js/typeahead.min.js" %}"></script>
+  <script type="text/javascript">
+    $("#facebook-page").typeahead({
+      name: 'facebook-pages',
+      local: {{ user_pages.data|as_json }},
+      valueKey: name,
+      template: [
+        '<div class="page-typeahead">',
+        '<img class="page-picture" src="{% templatetag openvariable %}picture.data.url{% templatetag closevariable %}" />',
+        '<p class="page-name">{% templatetag openvariable %}name{% templatetag closevariable %}</p>',
+        '<p class="page-category">{% templatetag openvariable %}category{% templatetag closevariable %}</p>',
+        '<p class="page-likes">{% templatetag openvariable %}likes{% templatetag closevariable %}</p>',
+        '</div>'
+      ].join(''),
+      engine: Hogan,
+    });
+  </script>
 {% endblock %}

@@ -54,6 +54,11 @@ table#ad-stats {
 }
 
 div#modal {
+  div.page-typeahead {
+    img {
+      float: left;
+    }
+  }
   div.preview {
     img.profile {
       

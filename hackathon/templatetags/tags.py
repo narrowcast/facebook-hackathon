@@ -1,5 +1,8 @@
+import json
+
 from django import template
 from django.core.urlresolvers import reverse_lazy
+from django.utils.safestring import mark_safe
 
 register = template.Library()
 
@@ -31,3 +34,8 @@ def currency(value, currency):
         return symbol + '{0:,.2f}'.format(value)
     else:
         return symbol + '{0:,.0f}'.format(value)
+
+@register.filter
+def as_json(data):
+    """Returns the data encoded in json for use in Javascript."""
+    return mark_safe(json.dumps(data))

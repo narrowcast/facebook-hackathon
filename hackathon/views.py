@@ -27,8 +27,10 @@ class AdvertiseView(TemplateView):
             os.environ['FACEBOOK_ACCESS_TOKEN'],
             settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
         user_pages = api.get_user_pages(
-            '16565898',
+            '214012',
             ['category', 'name', 'picture', 'likes', 'access_token'])
+        for page in user_pages['data']:
+            page['tokens'] = page['name'].split()
         context.update({'user_pages': user_pages,})
         return context
 
