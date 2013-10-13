@@ -20,22 +20,19 @@
               <img class="ad_profile" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/592281_163296720497064_55591213_q.jpg" />
             </div>
             <div class="col-md-10">
-              <h5><a class="ad_headline" href="http://www.sthsweet.com/">Somethin' Sweet</a></h5>
-              <p class="ad_text">
-                New products in five different styles uploaded everyday, with summer styles also available year-round!
-                Come take a look, there's somethin' sweet for every girl :)
-              </p>
+              <h5><a class="ad_headline" href="http://www.sthsweet.com/"></a></h5>
+              <p class="ad_text"></p>
               <div class="ad_thumbnail_box">
                 <div class="ad_thumbnail_box_controls">
                   <button class="btn btn-default btn-sm btn-left"><span class="glyphicon glyphicon-chevron-left"></span></button>
                   <button class="btn btn-default btn-sm btn-right"><span class="glyphicon glyphicon-chevron-right"></span></button>
                 </div>
-                <img class="ad_thumbnail" src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-prn2/p480x480/1380316_229148063911929_1627901287_n.jpg" />
+                <img class="ad_thumbnail" src="" />
               </div>
               <div class="well">
-                <a href="http://www.sthsweet.com/">Somethin' Sweet</a>
-                <p class="caption">www.sthsweet.com</p>
-                <p class="description">Shop according to your taste with our five different Korean fashion brands!</p>
+                <a class="ad_headline" href="http://www.sthsweet.com/"></a>
+                <p class="caption ad_url"></p>
+                <p class="description ad_text"></p>
               </div>
             </div>
           </div>
@@ -79,8 +76,6 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-{# {% include "sweet.html" %} #}
-
 {% block script %}
 <script src="//code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
@@ -91,20 +86,26 @@ $(document).ready(function() {
      
   function changeThumbnail(index) {
     $('img.ad_thumbnail').attr('src', images[index]['src']);
-
   }
   
-  // todo: set ad headline
+  // set headline & site domain
+  var title = $('title').text();
+  if (title.length > 0) {
+    $('.ad_headline').text(title.substring(0,25));
+    $('.ad_headline').attr('href', document.URL);
+    $('.ad_url').text(window.location.hostname);
+  }
 
-  // todo: set ad text
+  // set ad text
+  var text = $('p').text();
+  if (text.length > 0) {
+    $('.ad_text').text(text.substring(0,90));
+  }
 
   // set ad preview thumbnail
   if (images.length > 0) {
     changeThumbnail(cur_index);    
   }
-  
-  // todo: set site domain
-
 
   $('.btn-left').click(function(){
     if (cur_index > 0) {
@@ -112,7 +113,7 @@ $(document).ready(function() {
     };
   });  
   $('.btn-right').click(function(){
-    if (cur_index < images.length) {
+    if (cur_index < images.length-1) {
       changeThumbnail(++cur_index);
     };
   });

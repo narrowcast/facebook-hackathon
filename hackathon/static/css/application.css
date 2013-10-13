@@ -60,10 +60,11 @@ div#modal div.page-typeahead img {
 }
 /* line 67, ../scss/application.scss */
 div#modal .well {
+  width: 100%;
   border-radius: 0px;
 }
 
-/* line 72, ../scss/application.scss */
+/* line 73, ../scss/application.scss */
 div.ad_thumbnail_box {
   position: relative;
   float: left;
@@ -73,14 +74,14 @@ div.ad_thumbnail_box {
   overflow: hidden;
   text-align: center;
 }
-/* line 81, ../scss/application.scss */
+/* line 82, ../scss/application.scss */
 div.ad_thumbnail_box .ad_thumbnail_box_controls {
   position: absolute;
   float: left;
   bottom: 5px;
   left: 5px;
 }
-/* line 88, ../scss/application.scss */
+/* line 89, ../scss/application.scss */
 div.ad_thumbnail_box .ad_thumbnail {
   width: 100%;
 }
