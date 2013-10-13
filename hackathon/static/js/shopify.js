@@ -5,5 +5,5 @@
 * Script for Shopify plugin.
 */
 (function() {
-  console.log('Shopify script tag is functioning.');
+  console.log('Shopify script tag is working on ' + Shopify.shop + '.');
 })();

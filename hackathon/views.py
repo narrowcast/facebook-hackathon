@@ -64,7 +64,11 @@ def shopify_connected(request):
     shopify.ShopifyResource.activate_session(shopify_session)
     script_tag = shopify.ScriptTag()
     script_tag.event = 'onload'
-    script_tag.src = '//hack.vimote.com/static/js/shopify.js'
+    script_tag.src = '//localhost:8000/static/js/shopify.js'
+    if script_tag.save():
+        logger.info("Successfully installed script tag: %s" % script_tag)
+    else:
+        logger.error("Error while installing script tag: %s" % script_tag)
 
     messages.info(request, "Logged in to shopify store.")
     response = redirect(reverse('shopify_demo'))
