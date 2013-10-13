@@ -63,5 +63,32 @@ div#modal {
     img.profile {
       
     }
+
+    .well {
+      border-radius: 0px;
+    }
   }
+}
+
+div.ad_thumbnail_box {
+  position: relative;
+  float: left;
+  border: 1px #ddd solid;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  text-align: center;
+
+  .ad_thumbnail_box_controls {
+    position: absolute;
+    float: left;
+    bottom: 5px;
+    left: 5px;
+  }
+
+  .ad_thumbnail {
+    width: 100%;
+
+  }
+
 }
