@@ -64,7 +64,7 @@ $(document).ready(function() {
     }
   });
   $(".btn-right").click(function(){
-    if (image_index <= images.length) {
+    if (image_index < images.length - 1) {
       $('img.post-image').attr('src', images[++image_index]['src']);
       $("input#post-image-url").val(images[image_index]['src']);
     }
