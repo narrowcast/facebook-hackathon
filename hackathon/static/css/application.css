@@ -80,28 +80,28 @@ div#modal div.page-typeahead .page-info .page-name {
   color: #627aad;
   white-space: nowrap;
 }
-/* line 87, ../scss/application.scss */
+/* line 86, ../scss/application.scss */
 div#modal div.preview {
   font-size: 11px;
   font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 }
-/* line 91, ../scss/application.scss */
+/* line 90, ../scss/application.scss */
 div#modal div.preview .editable-unsaved {
   font-weight: inherit;
 }
-/* line 94, ../scss/application.scss */
+/* line 93, ../scss/application.scss */
 div#modal div.preview p {
   margin: 0;
 }
-/* line 97, ../scss/application.scss */
+/* line 96, ../scss/application.scss */
 div#modal div.preview div.col-page {
   width: 60px;
 }
-/* line 100, ../scss/application.scss */
+/* line 99, ../scss/application.scss */
 div#modal div.preview div.col-content {
   width: 400px;
 }
-/* line 103, ../scss/application.scss */
+/* line 102, ../scss/application.scss */
 div#modal div.preview h5.page-name {
   color: #3b5998;
   font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
@@ -109,42 +109,42 @@ div#modal div.preview h5.page-name {
   font-size: 13px;
   margin: 0 0 15px;
 }
-/* line 110, ../scss/application.scss */
+/* line 109, ../scss/application.scss */
 div#modal div.preview p.post-text {
   font-size: 13px;
 }
-/* line 113, ../scss/application.scss */
+/* line 112, ../scss/application.scss */
 div#modal div.preview div.post-image-box {
   width: 100%;
   height: 207px;
-  border: 1px #ddd solid;
+  border: 1px #dddddd solid;
   border-bottom: none;
   overflow: hidden;
 }
-/* line 120, ../scss/application.scss */
+/* line 119, ../scss/application.scss */
 div#modal div.preview div.post-image-box div.post-image-box-controls {
   position: relative;
   top: 170px;
   left: 5px;
 }
-/* line 125, ../scss/application.scss */
+/* line 124, ../scss/application.scss */
 div#modal div.preview div.post-image-box img.post-image {
   width: 100%;
 }
-/* line 129, ../scss/application.scss */
+/* line 128, ../scss/application.scss */
 div#modal div.preview p.post-headline {
   color: #3b5998;
   font-weight: bold;
 }
-/* line 133, ../scss/application.scss */
+/* line 132, ../scss/application.scss */
 div#modal div.preview p.post-caption, div#modal div.preview p.post-description {
   color: gray;
 }
-/* line 136, ../scss/application.scss */
+/* line 135, ../scss/application.scss */
 div#modal div.preview p.post-description {
   margin-top: 10px;
 }
-/* line 139, ../scss/application.scss */
+/* line 138, ../scss/application.scss */
 div#modal div.preview div.well {
   display: inline-block;
   margin-bottom: 10px;
@@ -152,16 +152,16 @@ div#modal div.preview div.well {
   border-top: none;
   border-radius: 0px;
 }
-/* line 147, ../scss/application.scss */
+/* line 146, ../scss/application.scss */
 div#modal div.preview div.actions a {
   color: #6d84b4;
 }
 
-/* line 156, ../scss/application.scss */
+/* line 155, ../scss/application.scss */
 table#ad-stats th {
   text-align: right;
 }
-/* line 159, ../scss/application.scss */
+/* line 158, ../scss/application.scss */
 table#ad-stats th.text-left {
   text-align: left;
 }

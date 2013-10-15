@@ -51,10 +51,12 @@ $(document).ready(function() {
     template: [
       '<div class="page-typeahead">',
       '<img class="page-picture" src="{{picture.data.url}}" />',
+      '<div class="page-info">',
       '<p class="page-name">{{name}}</p>',
       '<p class="page-category">{{category}}</p>',
-      '<p class="page-likes">{{likes}}</p>',
-      '</div>'
+      '<p class="page-likes">{{likes}} likes</p>',
+      '</div>',
+      '</div>',
     ].join(''),
     engine: Hogan,
   }).on('typeahead:selected', function(e, v) {

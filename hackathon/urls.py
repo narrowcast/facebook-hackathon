@@ -22,6 +22,11 @@ urlpatterns = patterns(
     url(r'^shopify/demo/$', views.shopify_demo, name='shopify_demo'),
 
     url(r'^facebook/pages.json$', views.facebook_pages, name='facebook_pages'),
+    url(r'^facebook/advertise/$', views.facebook_advertise,
+        name='facebook_advertise'),
+
+    url(r'^thanks/$', TemplateView.as_view(template_name='thanks.html'),
+        name='thanks'),
 
     # url(r'^hackathon/', include('hackathon.foo.urls')),
 

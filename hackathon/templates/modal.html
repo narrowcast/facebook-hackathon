@@ -2,81 +2,83 @@
 <div class="modal" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Advertise on Facebook</h4>
-      </div>
-      <div class="modal-body">
-        <form role="form">
+      <form id="advertise" class="form" role="form" method="post" action="//localhost:8000/facebook/advertise/">
+        <input type="hidden" id="page-id" name="page_id" />
+        <input type="hidden" id="link-url" name="link_url" />
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Advertise on Facebook</h4>
+        </div>
+        <div class="modal-body">
           <div class="form-group">
             <label for="facebook-page">Connect Your Facebook Page:</label>
             <input type="text" class="form-control" id="facebook-page" placeholder="Choose a Facebook Page to represent yout business" />
           </div>
-        </form>
-        <div class="preview">
-          <h4>Creative</h4>
-          <div class="row">
-            <div class="col-md-1 col-page">
-              <img class="page-picture" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/592281_163296720497064_55591213_q.jpg" />
-            </div>
-            <div class="col-md-11 col-content">
-              <h5 class="page-name">Page name placeholder</h5>
-              <p class="post-text editable" data-type="textarea">This is the text that is shown above the post image in the news feed or next to the image in the right column.</p>
-              <div class="post-image-box">
-                <div class="post-image-box-controls">
-                  <button class="btn btn-default btn-sm btn-left"><span class="glyphicon glyphicon-chevron-left"></span></button>
-                  <button class="btn btn-default btn-sm btn-right"><span class="glyphicon glyphicon-chevron-right"></span></button>
+          <div class="preview">
+            <h4>Creative</h4>
+            <div class="row">
+              <div class="col-md-1 col-page">
+                <img class="page-picture" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/592281_163296720497064_55591213_q.jpg" />
+              </div>
+              <div class="col-md-11 col-content">
+                <h5 class="page-name">Page name placeholder</h5>
+                <p class="post-text editable" data-type="textarea">This is the text that is shown above the post image in the news feed or next to the image in the right column.</p>
+                <div class="post-image-box">
+                  <div class="post-image-box-controls">
+                    <button type="button" class="btn btn-default btn-sm btn-left"><span class="glyphicon glyphicon-chevron-left"></span></button>
+                    <button type="button" class="btn btn-default btn-sm btn-right"><span class="glyphicon glyphicon-chevron-right"></span></button>
+                  </div>
+                  <img class="post-image" src="" />
                 </div>
-                <img class="post-image" src="" />
-              </div>
-              <div class="well">
-                <p class="post-headline"><a class="editable" data-type="text">This is Headline</a></p>
-                <p class="post-caption"><a class="editable" data-type="text">This is caption</a></p>
-                <p class="post-description editable" data-type="textarea">This is post description that is shown below the headline and caption. It is not shown in the right column. It could be pretty long as well.</p>
-              </div>
-              <div class="actions">
-                <span class="like"><a href="#">Like</a></span> ·
-                <span class="comment"><a href="#">Comment</a></span> ·
-                <span class="share"><a href="#">Share</a></span>
+                <div class="well">
+                  <p class="post-headline"><a class="editable" data-type="text">This is Headline</a></p>
+                  <p class="post-caption"><a class="editable" data-type="text">This is caption</a></p>
+                  <p class="post-description editable" data-type="textarea">This is post description that is shown below the headline and caption. It is not shown in the right column. It could be pretty long as well.</p>
+                </div>
+                <div class="actions">
+                  <span class="like"><a href="#">Like</a></span> ·
+                  <span class="comment"><a href="#">Comment</a></span> ·
+                  <span class="share"><a href="#">Share</a></span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <hr>
-        <div class="audience">
-          <h4>Audience</h4>
-          <div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                Optimized by Vimote (recommended) <a href="#"><sup>?</sup></a>
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                People who like your Page and their friends <a href="#"><sup>?</sup></a>
-              </label>
+          <hr>
+          <div class="audience">
+            <h4>Audience</h4>
+            <div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="audience" id="audienceRadios1" value="optimized" checked>
+                  Optimized by Vimote (recommended) <a href="#"><sup>?</sup></a>
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="audience" id="optionsRadios2" value="fans_and_friends">
+                  People who like your Page and their friends <a href="#"><sup>?</sup></a>
+                </label>
+              </div>
             </div>
           </div>
+          <hr>
+          <div class="budget">
+            <h4>Budget</h4>
+            <select class="form-control" id="budget" name="budget">
+              <option value="optimized">Optmized (recommended)</option>
+              <option value="10">$10</option>
+              <option value="50">$50</option>
+              <option value="250">$250</option>
+              <option value="1000">$1,000</option>
+              <option>Choose Your Own</option>
+            </select>
+          </div>
         </div>
-        <hr>
-        <div class="budget">
-          <h4>Budget</h4>
-          <select class="form-control">
-            <option>Optmized (recommended)</option>
-            <option>$10</option>
-            <option>$50</option>
-            <option>$250</option>
-            <option>$1,000</option>
-            <option>Choose Your Own</option>
-          </select>
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-primary" value="Advertise" />
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Advertise</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-      </div>
+      </form>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

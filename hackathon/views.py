@@ -8,9 +8,10 @@ import shopify
 from django.conf import settings
 from django.contrib import messages
 from django.core.urlresolvers import reverse
-from django.http import HttpResponse
+from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 
 from hackathon.decorators import shop_login_required
@@ -20,7 +21,7 @@ logger = logging.getLogger(__name__)
 
 class AdvertiseView(TemplateView):
     """View for rendering the advertise button page."""
-    template_name = 'advertise.html'
+    template_name = "advertise.html"
 
 
 def facebook_pages(request):
@@ -36,6 +37,61 @@ def facebook_pages(request):
     json_data = json.dumps(user_pages['data'])
     return HttpResponse(json_data, mimetype='application/json')
 
+
+def create_product_ad(account_id, page_id, link, product_id,
+                      daily_budget, targeting):
+    """
+    Creates an unpublished page post and an ad campaign and ads for it. It also
+    creates offsite conversion pixels for the ads.
+    """
+    logger.info("Creating page post link ad for the product %s" % product_id)
+    api = facebook.AdsAPI(
+        os.environ['FACEBOOK_ACCESS_TOKEN'],
+        settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
+
+    # 1. Creates an unpublished link page post
+    link = 'http://www.sthsweet.com/collections/front/products/10925'
+    response = api.create_link_page_post(page_id, link)
+    logger.info("Got response %s while creating link page post" % response)
+    page_post_id = response['id']
+    story_id = page_post_id.split('_')[-1]
+
+    # 2. Creates offsite conversion pixels for the campaign
+    response = api.create_offsite_pixel(account_id, link, 'KEY_PAGE_VIEW')
+    logger.info("Got response %s while creating offsite pixel" % response)
+    offsite_pixel_id = response
+    conversion_specs = [{"action.type": ["offsite_conversion"],
+                         "offsite_pixel": [offsite_pixel_id]}]
+
+    # 3. Creates an ad campaign and ads using the link page post
+    response = api.create_adcampaign(account_id, link, 1, daily_budget)
+    logger.info("Got response %s while creating ad campaign" % response)
+    adcampaign_id = response['id']
+    response = api.create_adcreative_type_27(
+        account_id, page_id, story_id=story_id, name=link)
+    logger.info("Got response %s while creating ad creative" % response)
+    adcreative_id = response['id']
+    response = api.create_adgroup(
+        account_id, link, 'ABSOLUTE_OCPM', {'ACTIONS': 1000},
+        adcampaign_id, adcreative_id, targeting, conversion_specs)
+    logger.info("Got response %s while creating ad group" % response)
+    return response
+
+
+@csrf_exempt
+def facebook_advertise(request):
+    """On advertising form submit, creates the page post and the ad."""
+    if request.method == 'POST':
+        link_url = request.POST['link_url']
+        page_id = request.POST['page_id']
+        audience = request.POST['audience']
+        budget = request.POST['budget']
+        targeting = {'countries': ['KR']}
+        response = create_product_ad('16565898', page_id, link_url,
+                                     'product_id', 1000, targeting)
+        return HttpResponseRedirect('/thanks/')
+    else:
+        raise Http404
 
 def shopify_connect(request):
     """Redirects to the Shopify OAuth endpoint."""
