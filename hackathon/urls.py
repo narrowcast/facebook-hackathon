@@ -21,6 +21,8 @@ urlpatterns = patterns(
         name='shopify_connected'),
     url(r'^shopify/demo/$', views.shopify_demo, name='shopify_demo'),
 
+    url(r'^facebook/pages.json$', views.facebook_pages, name='facebook_pages'),
+
     # url(r'^hackathon/', include('hackathon.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

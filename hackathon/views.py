@@ -1,3 +1,4 @@
+import json
 import logging
 import os
 
@@ -7,6 +8,7 @@ import shopify
 from django.conf import settings
 from django.contrib import messages
 from django.core.urlresolvers import reverse
+from django.http import HttpResponse
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 from django.views.generic import TemplateView
@@ -20,19 +22,19 @@ class AdvertiseView(TemplateView):
     """View for rendering the advertise button page."""
     template_name = 'advertise.html'
 
-    def get_context_data(self, **kwargs):
-        """Set the user pages data in the context."""
-        context = super(AdvertiseView, self).get_context_data(**kwargs)
-        api = facebook.AdsAPI(
+
+def facebook_pages(request):
+    """Returns the pages"""
+    logger.info("Returning the Facebook pages for the user.")
+    api = facebook.AdsAPI(
             os.environ['FACEBOOK_ACCESS_TOKEN'],
             settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
-        user_pages = api.get_user_pages(
-            '214012',
-            ['category', 'name', 'picture', 'likes', 'access_token'])
-        #for page in user_pages['data']:
-        #    page['tokens'] = page['name'].split()
-        context.update({'user_pages': user_pages,})
-        return context
+    user_pages = api.get_user_pages(
+        '214012', ['category', 'name', 'picture', 'likes', 'access_token'])
+    for page in user_pages['data']:
+        page['tokens'] = page['name'].split()
+    json_data = json.dumps(user_pages['data'])
+    return HttpResponse(json_data, mimetype='application/json')
 
 
 def shopify_connect(request):
