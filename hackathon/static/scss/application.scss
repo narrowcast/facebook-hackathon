@@ -68,10 +68,22 @@ a.editable {
 // Advertise modal
 div#modal {
   div.page-typeahead {
-    img {
-      float: left;
+    img.page-picture {
+      vertical-align: top;
+    }
+    .page-info {
+      display: inline-block;
+      font-size: 12px;
+      padding-left: 10px;
+
+      .page-name {
+        font-weight: bold;
+        color: rgb(98, 122, 173);
+        white-space: nowrap;
+      }
     }
   }
+
   div.preview {
     font-size: 11px;
     font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
