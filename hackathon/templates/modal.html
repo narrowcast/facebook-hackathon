@@ -16,6 +16,7 @@
         <div class="preview">
           <h4>Creative</h4>
           <div class="row">
+<<<<<<< HEAD
             <div class="col-md-1 col-page">
               <img class="page-picture" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/592281_163296720497064_55591213_q.jpg" />
             </div>
@@ -28,6 +29,23 @@
                   <button class="btn btn-default btn-sm btn-right"><span class="glyphicon glyphicon-chevron-right"></span></button>
                 </div>
                 <img class="post-image" src="" />
+=======
+            <div class="col-md-1">
+              <img class="ad_profile" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/592281_163296720497064_55591213_q.jpg" />
+            </div>
+            <div class="col-md-10">
+              <h5><a class="ad_headline" href="http://www.sthsweet.com/">Somethin' Sweet</a></h5>
+              <p class="ad_text">
+                New products in five different styles uploaded everyday, with summer styles also available year-round!
+                Come take a look, there's somethin' sweet for every girl :)
+              </p>
+              <div class="ad_thumbnail_box">
+                <div class="ad_thumbnail_box_controls">
+                  <button class="btn btn-default btn-sm btn-left"><span class="glyphicon glyphicon-chevron-left"></span></button>
+                  <button class="btn btn-default btn-sm btn-right"><span class="glyphicon glyphicon-chevron-right"></span></button>
+                </div>
+                <img class="ad_thumbnail" src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-prn2/p480x480/1380316_229148063911929_1627901287_n.jpg" />
+>>>>>>> f08ef7176767f86d0344b5926557d733ee64b09b
               </div>
               <div class="well">
                 <p class="post-headline"><a class="editable" data-type="text">This is Headline</a></p>
@@ -80,3 +98,46 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+{% include "sweet.html" %}
+
+{% block script %}
+<script src="//code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+  var images = $('img')
+  var cur_index = 0;
+     
+  function changeThumbnail(index) {
+    $('img.ad_thumbnail').attr('src', images[index]['src']);
+
+  }
+  
+  // set ad headline
+
+  // set ad text
+
+  // set ad preview thumbnail
+  if (images.length > 0) {
+    changeThumbnail(cur_index);    
+  }
+  
+  // set site domain
+
+
+  $('.btn-left').click(function(){
+    if (cur_index > 0) {
+      changeThumbnail(--cur_index);
+    };
+  });  
+  $('.btn-right').click(function(){
+    if (cur_index < images.length) {
+      changeThumbnail(++cur_index);
+    };
+  });
+
+
+});
+</script>
+{% endblock %}
