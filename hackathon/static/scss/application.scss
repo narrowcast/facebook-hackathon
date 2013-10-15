@@ -86,6 +86,7 @@ div#modal {
   div.preview {
     font-size: 11px;
     font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+    padding: 5px;
 
     .editable-unsaved {
       font-weight: inherit;
@@ -95,9 +96,16 @@ div#modal {
     }
     div.col-page {
       width: 60px;
+      float: left;
+
+      img.page-picture {
+        width: 50px;
+        height: 50px;
+      }
     }
     div.col-content {
       width: 400px;
+      float: left;
     }
     h5.page-name {
       color: $facebook-link-color;

@@ -24,7 +24,7 @@ $(document).ready(function() {
       $("input#post-headline").val(newValue);
     }
   });
-  $(".post-caption").editable({
+  $(".post-caption .editable").editable({
     type: 'text',
     success: function(response, newValue) {
       $("input#post-caption").val(newValue);
@@ -57,14 +57,14 @@ $(document).ready(function() {
   // Set link url
   $("input#link-url").val(document.URL);
   // Register buttons for changing image
-  $(".btn-left").click(function(){
+  $(".btn-left").click(function() {
     if (image_index > 0) {
       $("img.post-image").attr('src', images[--image_index]['src']);
       $("input#post-image-url").val(images[image_index]['src']);
     }
   });
-  $(".btn-right").click(function(){
-    if (image_index <= images.length) {
+  $(".btn-right").click(function() {
+    if (image_index < images.length - 1) {
       $('img.post-image').attr('src', images[++image_index]['src']);
       $("input#post-image-url").val(images[image_index]['src']);
     }
