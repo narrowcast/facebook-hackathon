@@ -13,17 +13,46 @@ $(document).ready(function() {
 
   if (title.length > 0) {
     $(".post-headline a.editable").text(title.substring(0, 25));
+    $("input#post-headline").val(title.substring(0, 25));
     $(".post-headline a.editable").attr('href', document.URL);
     $(".post-caption a.editable").text(window.location.hostname);
+    $("input#post-caption").val(window.location.hostname);
   }
+  $(".post-headline").editable({
+    type: 'text',
+    success: function(response, newValue) {
+      $("input#post-headline").val(newValue);
+    }
+  });
+  $(".post-caption").editable({
+    type: 'text',
+    success: function(response, newValue) {
+      $("input#post-caption").val(newValue);
+    }
+  });
+  $(".post-description").editable({
+    type: 'text',
+    success: function(response, newValue) {
+      $("input#post-description").val(newValue);
+    }
+  });
   // Set page post text
   var text = $("p").text();
+
   if (text.length > 0) {
-    $(".post-text").text(text.substring(0, 90));
+    $("p.post-text").text(text.substring(0, 90));
+    $("input#post-text").val(text.substring(0, 90));
   }
+  $(".post-text").editable({
+    type: 'textarea',
+    success: function(response, newValue) {
+      $("input#post-text").val(newValue);
+    }
+  });
   // Set page post image
   if (images.length > 0) {
     $("img.post-image").attr('src', images[image_index]['src']);
+    $("input#post-image-url").val(images[image_index]['src']);
   }
   // Set link url
   $("input#link-url").val(document.URL);
@@ -31,11 +60,13 @@ $(document).ready(function() {
   $(".btn-left").click(function(){
     if (image_index > 0) {
       $("img.post-image").attr('src', images[--image_index]['src']);
+      $("input#post-image-url").val(images[image_index]['src']);
     }
   });
   $(".btn-right").click(function(){
     if (image_index <= images.length) {
       $('img.post-image').attr('src', images[++image_index]['src']);
+      $("input#post-image-url").val(images[image_index]['src']);
     }
   });
   // Make elements editable with X-editable

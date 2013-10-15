@@ -7,6 +7,7 @@ import shopify
 class ConfigurationError(StandardError):
     pass
 
+
 class LoginProtection(object):
     def __init__(self):
         if not settings.SHOPIFY_API_KEY or not settings.SHOPIFY_API_SECRET:

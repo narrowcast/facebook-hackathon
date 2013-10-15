@@ -25,11 +25,11 @@ class AdvertiseView(TemplateView):
 
 
 def facebook_pages(request):
-    """Returns the pages"""
+    """Returns the pages data for the given user as JSON."""
     logger.info("Returning the Facebook pages for the user.")
     api = facebook.AdsAPI(
-            os.environ['FACEBOOK_ACCESS_TOKEN'],
-            settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
+        os.environ['FACEBOOK_ACCESS_TOKEN'],
+        settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
     user_pages = api.get_user_pages(
         '214012', ['category', 'name', 'picture', 'likes', 'access_token'])
     for page in user_pages['data']:
@@ -38,8 +38,9 @@ def facebook_pages(request):
     return HttpResponse(json_data, mimetype='application/json')
 
 
-def create_product_ad(account_id, page_id, link, product_id,
-                      daily_budget, targeting):
+def create_product_ad(account_id, page_id, link, message, picture, name,
+                      caption, description, product_id, daily_budget,
+                      targeting):
     """
     Creates an unpublished page post and an ad campaign and ads for it. It also
     creates offsite conversion pixels for the ads.
@@ -51,7 +52,8 @@ def create_product_ad(account_id, page_id, link, product_id,
 
     # 1. Creates an unpublished link page post
     link = 'http://www.sthsweet.com/collections/front/products/10925'
-    response = api.create_link_page_post(page_id, link)
+    response = api.create_link_page_post(
+        page_id, link, message, picture, name, caption, description)
     logger.info("Got response %s while creating link page post" % response)
     page_post_id = response['id']
     story_id = page_post_id.split('_')[-1]
@@ -84,14 +86,22 @@ def facebook_advertise(request):
     if request.method == 'POST':
         link_url = request.POST['link_url']
         page_id = request.POST['page_id']
+        post_text = request.POST['post_text']
+        post_image_url = request.POST['post_image_url']
+        post_headline = request.POST['post_headline']
+        post_caption = request.POST['post_caption']
+        post_description = request.POST['post_description']
         audience = request.POST['audience']
         budget = request.POST['budget']
         targeting = {'countries': ['KR']}
-        response = create_product_ad('16565898', page_id, link_url,
-                                     'product_id', 1000, targeting)
+        response = create_product_ad(
+            '16565898', page_id, link_url, post_text, post_image_url,
+            post_headline, post_caption, post_description,
+            'product_id', 1000, targeting)
         return HttpResponseRedirect('/thanks/')
     else:
         raise Http404
+
 
 def shopify_connect(request):
     """Redirects to the Shopify OAuth endpoint."""
