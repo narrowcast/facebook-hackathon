@@ -1,3 +1,6 @@
+$facebook-link-color: #3b5998;
+$facebook-action-color: #6d84b4;
+
 body {
   position: relative;
   padding-top: 50px;
@@ -7,26 +10,35 @@ footer {
   padding-bottom: 30px;
 }
 
+// Jumbotron on home page
 div.jumbotron {
   h1 {
     font-family: "Helvetica Neue", "MS PGothic", "Apple SD Gothic Neo";
     margin-bottom: 30px;
     line-height: 63px;
   }
-}
-
-div.jumbotron {
   a#hack {
     margin-top: 20px;
   }
 }
 
-table#ad-stats {
-  th {
-    text-align: right;
-  }
-  th.text-left {
-    text-align: left;
+// X-editable
+a.editable {
+  color:inherit;
+}
+
+.editable-click, a.editable-click {
+    border-bottom: none;
+
+    &:hover {
+      background: yellow;
+      border-bottom: none;
+    }
+}
+
+.editable-container {
+  .input-sm, .input-large {
+    width: 270px;
   }
 }
 
@@ -53,6 +65,7 @@ table#ad-stats {
   }
 }
 
+// Advertise modal
 div#modal {
   div.page-typeahead {
     img {
@@ -60,33 +73,78 @@ div#modal {
     }
   }
   div.preview {
-    img.profile {
-      
+    font-size: 11px;
+    font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+
+    .editable-unsaved {
+      font-weight: inherit;
     }
-  }
-  .well {
-    width: 100%;
-    border-radius: 0px;
+    p {
+      margin: 0;
+    }
+    div.col-page {
+      width: 60px;
+    }
+    div.col-content {
+      width: 400px;
+    }
+    h5.page-name {
+      color: $facebook-link-color;
+      font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+      font-weight: bold;
+      font-size: 13px;
+      margin: 0 0 15px;
+    }
+    p.post-text {
+      font-size: 13px;
+    }
+    div.post-image-box {
+      width: 100%;
+      height: 207px;
+      border: 1px #ddd solid;
+      border-bottom: none;
+      overflow: hidden;
+
+      div.post-image-box-controls {
+        position: relative;
+        top: 170px;
+        left: 5px;
+      }
+      img.post-image {
+        width: 100%;
+      }
+    }
+    p.post-headline {
+      color: $facebook-link-color;
+      font-weight: bold;
+    }
+    p.post-caption, p.post-description {
+      color: gray;
+    }
+    p.post-description {
+      margin-top: 10px;
+    }
+    div.well {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-top: none;
+      border-radius: 0px;
+    }
+    div.actions {
+      a {
+        color: $facebook-action-color;
+      }
+    }
   }
 }
 
-div.ad_thumbnail_box {
-  position: relative;
-  float: left;
-  border: 1px #ddd solid;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-  text-align: center;
-
-  .ad_thumbnail_box_controls {
-    position: absolute;
-    float: left;
-    bottom: 5px;
-    left: 5px;
+// Ad statistics table
+table#ad-stats {
+  th {
+    text-align: right;
   }
-
-  .ad_thumbnail {
-    width: 100%;
+  th.text-left {
+    text-align: left;
   }
 }

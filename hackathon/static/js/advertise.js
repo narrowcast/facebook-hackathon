@@ -1,42 +1,49 @@
+/**
+* advertise.js v0.1.0 by Chee-Hyung Yoon, Taenyon Kim
+* Copyright 2013 Narrowcast, Inc.
+*
+* Script for Facebook advertise button.
+*/
+function advertise() {
+  // Make an Ajax call to the server to create a page post and an ad
+  //call create_product_ad(account_id, page_id, link, product_id, daily_budget, targeting):
+}
+
 $(document).ready(function() {
   var images = $('img');
   var image_index = 0;
 
-  // Turn to inline mode
-  // $.fn.editable.defaults.mode = 'inline';
+  // X-editable: turn to inline mode
+  //$.fn.editable.defaults.mode = 'inline';
   // Make elements editable with X-editable
   $('.editable').editable();
 
-  function changeThumbnail(index) {
-    $('img.ad_thumbnail').attr('src', images[index]['src']);
-  }
-  // set headline & site domain
+  // Set page post headline and caption
   var title = $('title').text();
-  console.log(title);
+
   if (title.length > 0) {
-    $('.headline').text(title.substring(0, 25));
-    $('.headline').attr('href', document.URL);
-    $('.caption').text(window.location.hostname);
+    $('.post-headline a.editable').text(title.substring(0, 25));
+    $('.post-headline a.editable').attr('href', document.URL);
+    $('.post-caption a.editable').text(window.location.hostname);
   }
-  // set ad text
+  // Set page post text
   var text = $('p').text();
-  console.log(text);
   if (text.length > 0) {
-    $('.text').text(text.substring(0, 90));
+    $('.post-text').text(text.substring(0, 90));
   }
-  // set ad preview thumbnail
+  // Set page post image
   if (images.length > 0) {
-    changeThumbnail(image_index);    
+    $('img.post-image').attr('src', images[image_index]['src']);
   }
   // Buttons for changing image
   $('.btn-left').click(function(){
     if (image_index > 0) {
-      changeThumbnail(--image_index);
+      $('img.post-image').attr('src', images[--image_index]['src']);
     }
   });
   $('.btn-right').click(function(){
     if (image_index <= images.length) {
-      changeThumbnail(++image_index);
+      $('img.post-image').attr('src', images[++image_index]['src']);
     }
-  });  
+  });
 });

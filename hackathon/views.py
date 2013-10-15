@@ -29,8 +29,8 @@ class AdvertiseView(TemplateView):
         user_pages = api.get_user_pages(
             '214012',
             ['category', 'name', 'picture', 'likes', 'access_token'])
-        for page in user_pages['data']:
-            page['tokens'] = page['name'].split()
+        #for page in user_pages['data']:
+        #    page['tokens'] = page['name'].split()
         context.update({'user_pages': user_pages,})
         return context
 

@@ -16,23 +16,28 @@
         <div class="preview">
           <h4>Creative</h4>
           <div class="row">
-            <div class="col-md-1">
-              <img class="ad_profile" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/592281_163296720497064_55591213_q.jpg" />
+            <div class="col-md-1 col-page">
+              <img class="page-picture" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/592281_163296720497064_55591213_q.jpg" />
             </div>
-            <div class="col-md-10">
+            <div class="col-md-11 col-content">
               <h5 class="page-name">Page name placeholder</h5>
-              <p class="text editable" data-type="textarea"></p>
-              <div class="ad_thumbnail_box">
-                <div class="ad_thumbnail_box_controls">
+              <p class="post-text editable" data-type="textarea">This is the text that is shown above the post image in the news feed or next to the image in the right column.</p>
+              <div class="post-image-box">
+                <div class="post-image-box-controls">
                   <button class="btn btn-default btn-sm btn-left"><span class="glyphicon glyphicon-chevron-left"></span></button>
                   <button class="btn btn-default btn-sm btn-right"><span class="glyphicon glyphicon-chevron-right"></span></button>
                 </div>
-                <img class="ad_thumbnail" src="" />
+                <img class="post-image" src="" />
               </div>
               <div class="well">
-                <p><a class="headline editable" data-type="text"></a></p>
-                <p class="caption editable" data-type="text"></p>
-                <p class="description editable" data-type="textarea">Description placeholder</p>
+                <p class="post-headline"><a class="editable" data-type="text">This is Headline</a></p>
+                <p class="post-caption"><a class="editable" data-type="text">This is caption</a></p>
+                <p class="post-description editable" data-type="textarea">This is post description that is shown below the headline and caption. It is not shown in the right column. It could be pretty long as well.</p>
+              </div>
+              <div class="actions">
+                <span class="like"><a href="#">Like</a></span> ·
+                <span class="comment"><a href="#">Comment</a></span> ·
+                <span class="share"><a href="#">Share</a></span>
               </div>
             </div>
           </div>
@@ -60,9 +65,9 @@
           <h4>Budget</h4>
           <select class="form-control">
             <option>Optmized (recommended)</option>
+            <option>$10</option>
             <option>$50</option>
-            <option>$200</option>
-            <option>$500</option>
+            <option>$250</option>
             <option>$1,000</option>
             <option>Choose Your Own</option>
           </select>
