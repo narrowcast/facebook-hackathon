@@ -24,7 +24,7 @@ $(document).ready(function() {
       $("input#post-headline").val(newValue);
     }
   });
-  $(".post-caption").editable({
+  $(".post-caption .editable").editable({
     type: 'text',
     success: function(response, newValue) {
       $("input#post-caption").val(newValue);
