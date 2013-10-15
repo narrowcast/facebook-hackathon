@@ -13,27 +13,6 @@ $(document).ready(function() {
   var images = $('img');
   var image_index = 0;
 
-  // X-editable: turn to inline mode
-  //$.fn.editable.defaults.mode = 'inline';
-  // Make elements editable with X-editable
-  $('.editable').editable();
-
-  // Enable typeahead for connecting a Facebook page
-  $("#facebook-page").typeahead({
-    name: 'facebook-pages',
-    prefetch: '/facebook/pages.json',
-    valueKey: 'name',
-    template: [
-      '<div class="page-typeahead">',
-      '<img class="page-picture" src="{{picture.data.url}}" />',
-      '<p class="page-name">{{name}}</p>',
-      '<p class="page-category">{{category}}</p>',
-      '<p class="page-likes">{{likes}}</p>',
-      '</div>'
-    ].join(''),
-    engine: Hogan,
-  });
-
   // Set page post headline and caption
   var title = $('title').text();
 
@@ -51,7 +30,7 @@ $(document).ready(function() {
   if (images.length > 0) {
     $('img.post-image').attr('src', images[image_index]['src']);
   }
-  // Buttons for changing image
+  // Register buttons for changing image
   $('.btn-left').click(function(){
     if (image_index > 0) {
       $('img.post-image').attr('src', images[--image_index]['src']);
@@ -61,5 +40,29 @@ $(document).ready(function() {
     if (image_index <= images.length) {
       $('img.post-image').attr('src', images[++image_index]['src']);
     }
+  });
+  // Make elements editable with X-editable
+  $('.editable').editable({
+    'highlight': false,
+    'unsavedclass': null,
+  });
+  // Enable typeahead for connecting a Facebook page
+  $("#facebook-page").typeahead({
+    name: 'facebook-pages',
+    prefetch: '/facebook/pages.json',
+    valueKey: 'name',
+    template: [
+      '<div class="page-typeahead">',
+      '<img class="page-picture" src="{{picture.data.url}}" />',
+      '<p class="page-name">{{name}}</p>',
+      '<p class="page-category">{{category}}</p>',
+      '<p class="page-likes">{{likes}}</p>',
+      '</div>'
+    ].join(''),
+    engine: Hogan,
+  }).on('typeahead:selected', function(e, v) {
+    // Update Page name and picture on select
+    $("h5.page-name").text(v.name);
+    $("img.page-picture").attr('src', v.picture.data.url);
   });
 });
