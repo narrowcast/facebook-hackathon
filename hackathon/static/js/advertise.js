@@ -4,45 +4,42 @@
 *
 * Script for Facebook advertise button.
 */
-function advertise() {
-  // Make an Ajax call to the server to create a page post and an ad
-  //call create_product_ad(account_id, page_id, link, product_id, daily_budget, targeting):
-}
-
 $(document).ready(function() {
-  var images = $('img');
+  var images = $("img");
   var image_index = 0;
 
   // Set page post headline and caption
-  var title = $('title').text();
+  var title = $("title").text();
 
   if (title.length > 0) {
-    $('.post-headline a.editable').text(title.substring(0, 25));
-    $('.post-headline a.editable').attr('href', document.URL);
-    $('.post-caption a.editable').text(window.location.hostname);
+    $(".post-headline a.editable").text(title.substring(0, 25));
+    $(".post-headline a.editable").attr('href', document.URL);
+    $(".post-caption a.editable").text(window.location.hostname);
   }
   // Set page post text
-  var text = $('p').text();
+  var text = $("p").text();
   if (text.length > 0) {
-    $('.post-text').text(text.substring(0, 90));
+    $(".post-text").text(text.substring(0, 90));
   }
   // Set page post image
   if (images.length > 0) {
-    $('img.post-image').attr('src', images[image_index]['src']);
+    $("img.post-image").attr('src', images[image_index]['src']);
   }
+  // Set link url
+  $("input#link-url").val(document.URL);
   // Register buttons for changing image
-  $('.btn-left').click(function(){
+  $(".btn-left").click(function(){
     if (image_index > 0) {
-      $('img.post-image').attr('src', images[--image_index]['src']);
+      $("img.post-image").attr('src', images[--image_index]['src']);
     }
   });
-  $('.btn-right').click(function(){
+  $(".btn-right").click(function(){
     if (image_index <= images.length) {
       $('img.post-image').attr('src', images[++image_index]['src']);
     }
   });
   // Make elements editable with X-editable
-  $('.editable').editable({
+  $(".editable").editable({
     'highlight': false,
     'unsavedclass': null,
   });
@@ -62,6 +59,8 @@ $(document).ready(function() {
     engine: Hogan,
   }).on('typeahead:selected', function(e, v) {
     // Update Page name and picture on select
+    console.log(v.id);
+    $("input#page-id").val(v.id);
     $("h5.page-name").text(v.name);
     $("img.page-picture").attr('src', v.picture.data.url);
   });
