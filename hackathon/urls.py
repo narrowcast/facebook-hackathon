@@ -11,6 +11,8 @@ urlpatterns = patterns(
     '',
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
     url(r'^advertise/$', views.AdvertiseView.as_view(), name='advertise'),
+    url(r'^advertise/demo/$', views.advertise_demo, name='advertise_demo'),
+    url(r'^advertise/demo_success/$', views.advertise_demo_success, name='advertise_demo_success'),
     url(r'^shopify/$', TemplateView.as_view(template_name='shopify.html'),
         name='shopify'),
     url(r'^video/$', TemplateView.as_view(template_name='video.html'),

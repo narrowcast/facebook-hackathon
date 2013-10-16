@@ -1,0 +1,719 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Q Brand Agency New Zealand</title>
+    <meta name="Description" content="Q Brand Agency, Christchurch New Zealand, Design and Advertising. Specialising in brand strategy." />
+    
+    <!-- xosus -->
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/typeahead.js-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/bootstrap-editable.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/modal.css">
+    
+    <!-- xosus -->
+    <link rel="stylesheet" type="text/css" href="../../static/css/style.css" />
+    
+    <script src="http://www.qbrandagency.com/static/j/lib/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="http://www.qbrandagency.com/static/j/lib/underscore-min.js" type="text/javascript"></script>
+    <script src="http://www.qbrandagency.com/static/j/site.js" type="text/javascript"></script>
+    
+
+  </head>
+  <body class="homepage">
+    <div id="container">
+      <div class="navigation">
+        <ul>
+          <li><a href="http://www.qbrandagency.com/about/">About us</a></li>
+          <li><a href="http://www.qbrandagency.com/difference/">Our difference</a></li>
+          <li><a href="http://www.qbrandagency.com/people/">People in our team</a></li>
+          <li><a href="http://www.qbrandagency.com/contact/">Talk to us</a></li>
+        </ul>
+
+        <a href="http://www.qbrandagency.com/" class="header-logo">Q Brand Agency</a>
+      </div>
+      <div class="left-column">
+        
+        <a href="http://www.qbrandagency.com/" id="logo">
+          <img id="logo" src="http://www.qbrandagency.com/static/i/q-brand-logo.gif" alt="Q Brand Agency" width="213" height="241" />
+        </a>
+        
+        <div class="about">
+          
+<p>We&rsquo;re the marketer&rsquo;s agency. <br />We&rsquo;re real people, with a practical approach to advertising &amp; design. We built our business on a team who love what they do, and now on clients who love working with us.</p>
+
+        </div>
+        <!-- xosus -->
+        <button type="button" data-toggle="modal" data-target="#modal" class="btn btn-primary">Advertise</button>
+        <!-- Modal for creating a Facebook ad -->
+
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form id="advertise" class="form" role="form" method="post" action="/facebook/advertise/">
+                <input type="hidden" id="page-id" name="page_id" />
+                <input type="hidden" id="link-url" name="link_url" />
+                <input type="hidden" id="post-text" name="post_text" />
+                <input type="hidden" id="post-image-url" name="post_image_url" />
+                <input type="hidden" id="post-headline" name="post_headline" />
+                <input type="hidden" id="post-caption" name="post_caption" />
+                <input type="hidden" id="post-description" name="post_description" />
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title">Advertise on Facebook</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label for="facebook-page">Connect Your Facebook Page:</label>
+                    <input type="text" class="form-control" id="facebook-page" placeholder="Choose a Facebook Page to represent yout business" />
+                  </div>
+                  <h4>Creative</h4>
+                  <div class="preview">
+                    <div class="row">
+                      <div class="col-md-1 col-page">
+                        <img class="page-picture" src="" />
+                      </div>
+                      <div class="col-md-11 col-content">
+                        <h5 class="page-name">Page name placeholder</h5>
+                        <p class="post-text editable" data-type="textarea">This is the text that is shown above the post image in the news feed or next to the image in the right column.</p>
+                        <div class="post-image-box">
+                          <div class="post-image-box-controls">
+                            <button type="button" class="btn btn-default btn-sm btn-left"><span class="glyphicon glyphicon-chevron-left"></span></button>
+                            <button type="button" class="btn btn-default btn-sm btn-right"><span class="glyphicon glyphicon-chevron-right"></span></button>
+                          </div>
+                          <img class="post-image" src="" />
+                        </div>
+                        <div class="well">
+                          <p class="post-headline"><a class="editable" data-type="text">This is Headline</a></p>
+                          <p class="post-caption"><a class="editable" data-type="text">This is caption</a></p>
+                          <p class="post-description editable" data-type="textarea">This is post description that is shown below the headline and caption. It is not shown in the right column. It could be pretty long as well.</p>
+                        </div>
+                        <div class="actions">
+                          <span class="like"><a href="#">Like</a></span> ·
+                          <span class="comment"><a href="#">Comment</a></span> ·
+                          <span class="share"><a href="#">Share</a></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="audience">
+                    <h4>Audience</h4>
+                    <div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="audience" id="audienceRadios1" value="optimized" checked>
+                          Optimized by Vimote (recommended) <a href="#"><sup>?</sup></a>
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="audience" id="optionsRadios2" value="fans_and_friends">
+                          People who like your Page and their friends <a href="#"><sup>?</sup></a>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="budget">
+                    <h4>Budget</h4>
+                    <select class="form-control" id="budget" name="budget">
+                      <option value="optimized">Optmized (recommended)</option>
+                      <option value="10">$10</option>
+                      <option value="50">$50</option>
+                      <option value="250">$250</option>
+                      <option value="1000">$1,000</option>
+                      <option>Choose Your Own</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <input type="submit" class="btn btn-primary" value="Advertise" />
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+              </form>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+      </div>
+      <div class="main">
+        
+
+<div class="featured-project">
+  <h2 style="margin-top: 5px;">Featured Work</h2>
+  
+  <div class="slideshow" style="height: 410px; width: 750px;">
+    
+    
+    <img src="http://www.qbrandagency.com/media/cache/25/2e/252e226e6594ab26d02541c49e34b125.jpg" alt="" width="750" height="410" />
+    
+    
+    
+    <img src="http://www.qbrandagency.com/media/cache/ec/cd/eccd9446ad1702a4846ad6518362ab42.jpg" alt="" width="750" height="410" />
+    
+    
+    
+    <img src="http://www.qbrandagency.com/media/cache/e5/6f/e56f055cd15edcec370e2007f1e74d8f.jpg" alt="" width="750" height="410" />
+    
+    
+    
+    <img src="http://www.qbrandagency.com/media/cache/e2/d2/e2d20330afc2ed60ff0cf95c00dc8b90.jpg" alt="" width="750" height="410" />
+    
+    
+    
+    <img src="http://www.qbrandagency.com/media/cache/aa/48/aa482ee95a808ed1c45b78e1efed5821.jpg" alt="" width="750" height="410" />
+    
+    
+  </div>
+  <p>
+    <strong>Gustav&#39;s Kitchen</strong><br />
+    Brand Identity.<br />
+    <a href="http://www.qbrandagency.com/project/gustavs">+ Read More</a>
+  </p>
+</div>
+
+
+<div class="project-set">
+  <h2>Our Work</h2>
+  
+  
+  
+  <div class="row">
+    
+    <div class="item first
+                ">
+      <a href="http://www.qbrandagency.com/project/body-festival2013">
+        
+        <img src="http://www.qbrandagency.com/media/cache/64/13/6413a5c11c11443fdffbcabc78202eab.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Body Festival</strong><br />
+        <span class="summary">Advertising Campaign.</span><br />
+        + <a href="http://www.qbrandagency.com/project/body-festival2013">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/gustavs">
+        
+        <img src="http://www.qbrandagency.com/media/cache/ec/5f/ec5f42a2406716d94573705cb2a10583.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Gustav&#39;s Kitchen</strong><br />
+        <span class="summary">Brand Identity.</span><br />
+        + <a href="http://www.qbrandagency.com/project/gustavs">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/tannery-shopping-precinct">
+        
+        <img src="http://www.qbrandagency.com/media/cache/65/d6/65d6fa9fdd5a2eb8ce3e8d9db92f1a72.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">The Tannery Shopping Precinct</strong><br />
+        <span class="summary">Logo and Brand Development.</span><br />
+        + <a href="http://www.qbrandagency.com/project/tannery-shopping-precinct">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                far">
+      <a href="http://www.qbrandagency.com/project/boutique-brands">
+        
+        <img src="http://www.qbrandagency.com/media/cache/ff/9c/ff9c7e3f6eba60a4dbb67af1c05d4891.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Boutique Brands</strong><br />
+        <span class="summary">Logo and Brand Execution.</span><br />
+        + <a href="http://www.qbrandagency.com/project/boutique-brands">Read
+          More</a></p>
+    </div>
+    
+  </div>
+  
+  
+  
+  <div class="row">
+    
+    <div class="item first
+                ">
+      <a href="http://www.qbrandagency.com/project/leighs-construction-AR">
+        
+        <img src="http://www.qbrandagency.com/media/cache/e6/db/e6db90bb08b6e9deca43e2d74a336031.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Leighs Construction</strong><br />
+        <span class="summary">Brand Refresh.</span><br />
+        + <a href="http://www.qbrandagency.com/project/leighs-construction-AR">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/easi-yo-tactix">
+        
+        <img src="http://www.qbrandagency.com/media/cache/ac/e6/ace6a8ca79f2d4b862e152f3ca6a885c.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Easi-Yo Tactix </strong><br />
+        <span class="summary">2013 Marketing Campaign.</span><br />
+        + <a href="http://www.qbrandagency.com/project/easi-yo-tactix">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/skope-heating">
+        
+        <img src="http://www.qbrandagency.com/media/cache/2d/03/2d0326fea7e01917d7470f84417613f4.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">SKOPE Heating</strong><br />
+        <span class="summary">Packaging Design.</span><br />
+        + <a href="http://www.qbrandagency.com/project/skope-heating">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                far">
+      <a href="http://www.qbrandagency.com/project/NatcollDesignCollege">
+        
+        <img src="http://www.qbrandagency.com/media/cache/cf/5b/cf5b34ffdd9d2139c48805fb2d8f118a.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Natcoll Design College</strong><br />
+        <span class="summary">Recruitment Campaign.</span><br />
+        + <a href="http://www.qbrandagency.com/project/NatcollDesignCollege">Read
+          More</a></p>
+    </div>
+    
+  </div>
+  
+  
+  
+  <div class="row">
+    
+    <div class="item first
+                ">
+      <a href="http://www.qbrandagency.com/project/ccc-consents">
+        
+        <img src="http://www.qbrandagency.com/media/cache/ff/6d/ff6d132cdc32bdab90a0b2faf2e0532d.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name"> CCC Consent</strong><br />
+        <span class="summary">Education Campaign.</span><br />
+        + <a href="http://www.qbrandagency.com/project/ccc-consents">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/David-Reid-Homes">
+        
+        <img src="http://www.qbrandagency.com/media/cache/2f/7c/2f7c86855a811e08364d888926b25ac5.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">David Reid Homes</strong><br />
+        <span class="summary">Campaign and Collateral.</span><br />
+        + <a href="http://www.qbrandagency.com/project/David-Reid-Homes">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/westland-milk-products">
+        
+        <img src="http://www.qbrandagency.com/media/cache/47/bd/47bd2f5dfd8aa3b345e30086638af420.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Westland Milk Products</strong><br />
+        <span class="summary">Annual Report.</span><br />
+        + <a href="http://www.qbrandagency.com/project/westland-milk-products">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                far">
+      <a href="http://www.qbrandagency.com/project/kitchen-studios">
+        
+        <img src="http://www.qbrandagency.com/media/cache/8a/fb/8afb28a3c17a17fbdcebcac78239daf1.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Kitchen Studio</strong><br />
+        <span class="summary">Advertising Campaign.</span><br />
+        + <a href="http://www.qbrandagency.com/project/kitchen-studios">Read
+          More</a></p>
+    </div>
+    
+  </div>
+  
+  
+  
+  <div class="row">
+    
+    <div class="item first
+                ">
+      <a href="http://www.qbrandagency.com/project/coca">
+        
+        <img src="http://www.qbrandagency.com/media/cache/4c/45/4c45cdaf9294466c3d57a19192c05ff8.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">COCA</strong><br />
+        <span class="summary">Logotype &amp; Branding.</span><br />
+        + <a href="http://www.qbrandagency.com/project/coca">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/skope2">
+        
+        <img src="http://www.qbrandagency.com/media/cache/9b/73/9b73b4b82db8d4e1c30c4d59b64c08b1.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">SKOPE </strong><br />
+        <span class="summary">Warm Fuzzy Campaign.</span><br />
+        + <a href="http://www.qbrandagency.com/project/skope2">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/cloud-9">
+        
+        <img src="http://www.qbrandagency.com/media/cache/6f/33/6f33b78f15cb2995816791aa4e69ad61.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Cloud 9</strong><br />
+        <span class="summary">Marketing Campaign. </span><br />
+        + <a href="http://www.qbrandagency.com/project/cloud-9">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                far">
+      <a href="http://www.qbrandagency.com/project/love-your-rubbish">
+        
+        <img src="http://www.qbrandagency.com/media/cache/82/54/82544ca05b0579e858ae81501d9ebf5a.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Love your rubbish</strong><br />
+        <span class="summary">Brand and Marketing Campaign.</span><br />
+        + <a href="http://www.qbrandagency.com/project/love-your-rubbish">Read
+          More</a></p>
+    </div>
+    
+  </div>
+  
+  
+  
+  <div class="row">
+    
+    <div class="item first
+                ">
+      <a href="http://www.qbrandagency.com/project/mtf-advertising-campaign">
+        
+        <img src="http://www.qbrandagency.com/media/cache/a4/01/a40141674cb87aa943508502afbec356.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">MTF Advertising Campaign</strong><br />
+        <span class="summary">Illustration Series.</span><br />
+        + <a href="http://www.qbrandagency.com/project/mtf-advertising-campaign">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/skope">
+        
+        <img src="http://www.qbrandagency.com/media/cache/ee/9c/ee9c3ecc4cdc1f69bd090ad4bd935cf9.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">SKOPE </strong><br />
+        <span class="summary">Marketing Collateral.</span><br />
+        + <a href="http://www.qbrandagency.com/project/skope">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/westland-milk-products-packaging">
+        
+        <img src="http://www.qbrandagency.com/media/cache/82/05/8205ef78c4a55d014c9a86bedac5af8f.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Westland Milk Products</strong><br />
+        <span class="summary">Packaging Design.</span><br />
+        + <a href="http://www.qbrandagency.com/project/westland-milk-products-packaging">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                far">
+      <a href="http://www.qbrandagency.com/project/mtf">
+        
+        <img src="http://www.qbrandagency.com/media/cache/fe/b6/feb60be6aaff29496319e5f43d9f7869.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">MTF </strong><br />
+        <span class="summary">Rebrand and Collateral.</span><br />
+        + <a href="http://www.qbrandagency.com/project/mtf">Read
+          More</a></p>
+    </div>
+    
+  </div>
+  
+  
+  
+  <div class="row">
+    
+    <div class="item first
+                ">
+      <a href="http://www.qbrandagency.com/project/les-mills">
+        
+        <img src="http://www.qbrandagency.com/media/cache/13/ea/13eacebc1a9f929d938a4588482b275e.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Les Mills</strong><br />
+        <span class="summary">Re-opening Campaign.</span><br />
+        + <a href="http://www.qbrandagency.com/project/les-mills">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/Christchurch-International-Airport">
+        
+        <img src="http://www.qbrandagency.com/media/cache/ee/73/ee73df9deba37fd6e08471cbc06c81dc.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Christchurch International Airport</strong><br />
+        <span class="summary">RWC  Advertising Campaign.</span><br />
+        + <a href="http://www.qbrandagency.com/project/Christchurch-International-Airport">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/christchurch-city-council">
+        
+        <img src="http://www.qbrandagency.com/media/cache/f4/0c/f40cabcb23fe690a8b367da56d8f8c63.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Christchurch City Council</strong><br />
+        <span class="summary">Become Waterwise Campaign.</span><br />
+        + <a href="http://www.qbrandagency.com/project/christchurch-city-council">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                far">
+      <a href="http://www.qbrandagency.com/project/cholmondeley">
+        
+        <img src="http://www.qbrandagency.com/media/cache/9d/59/9d597cb53ee4eb36a080dbf66c4fbdde.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Cholmondeley </strong><br />
+        <span class="summary">Brand Refresh.</span><br />
+        + <a href="http://www.qbrandagency.com/project/cholmondeley">Read
+          More</a></p>
+    </div>
+    
+  </div>
+  
+  
+  
+  <div class="row">
+    
+    <div class="item first
+                ">
+      <a href="http://www.qbrandagency.com/project/waitikiri">
+        
+        <img src="http://www.qbrandagency.com/media/cache/f0/8a/f08a89afaf43e8cbbb8fb7af8a94021d.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Waitikiri </strong><br />
+        <span class="summary">Advertising Campaign.</span><br />
+        + <a href="http://www.qbrandagency.com/project/waitikiri">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/bethere">
+        
+        <img src="http://www.qbrandagency.com/media/cache/e3/76/e376aa71e42ba587bc9ac2f0687dc25f.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">BeThere</strong><br />
+        <span class="summary">Brand and Identity.</span><br />
+        + <a href="http://www.qbrandagency.com/project/bethere">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/fastway">
+        
+        <img src="http://www.qbrandagency.com/media/cache/0a/ec/0aecdbb18fee895eefef66f14ba90241.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Fastway </strong><br />
+        <span class="summary">Marketing Collateral.</span><br />
+        + <a href="http://www.qbrandagency.com/project/fastway">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                far">
+      <a href="http://www.qbrandagency.com/project/silvermoon">
+        
+        <img src="http://www.qbrandagency.com/media/cache/cc/9e/cc9e816557eb6b9742c13dc73e563fe1.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Silvermoon</strong><br />
+        <span class="summary">Advertising Campaign.</span><br />
+        + <a href="http://www.qbrandagency.com/project/silvermoon">Read
+          More</a></p>
+    </div>
+    
+  </div>
+  
+  
+  
+  <div class="row">
+    
+    <div class="item first
+                ">
+      <a href="http://www.qbrandagency.com/project/Westland-Milk-Products-2">
+        
+        <img src="http://www.qbrandagency.com/media/cache/1d/d3/1dd3bd5639ace87ed78318428499c045.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Westland Milk Products</strong><br />
+        <span class="summary">Marketing Collateral.</span><br />
+        + <a href="http://www.qbrandagency.com/project/Westland-Milk-Products-2">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/southern-lights-ballet">
+        
+        <img src="http://www.qbrandagency.com/media/cache/a0/5c/a05c96cda58525901e17e040e7060f4f.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Southern Lights Ballet</strong><br />
+        <span class="summary">Marketing Campaign.</span><br />
+        + <a href="http://www.qbrandagency.com/project/southern-lights-ballet">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                ">
+      <a href="http://www.qbrandagency.com/project/bodyfix">
+        
+        <img src="http://www.qbrandagency.com/media/cache/d1/7a/d17a5ee2ed9689da75a3b73e111877e3.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">BodyFix</strong><br />
+        <span class="summary">Brand Development.</span><br />
+        + <a href="http://www.qbrandagency.com/project/bodyfix">Read
+          More</a></p>
+    </div>
+    
+  
+  
+    <div class="item 
+                far">
+      <a href="http://www.qbrandagency.com/project/pit-stop">
+        
+        <img src="http://www.qbrandagency.com/media/cache/f6/80/f680630ea1e05c9d96b43b8bd62e32ce.jpg" alt="" />
+        
+      </a>
+      <p><strong class="project-name">Pit Stop </strong><br />
+        <span class="summary">Direct Marketing Campaign.</span><br />
+        + <a href="http://www.qbrandagency.com/project/pit-stop">Read
+          More</a></p>
+    </div>
+    
+  </div>
+  
+  
+</div>
+
+
+
+
+      </div>
+      <div class="footer-address">
+        
+     </div>
+    </div>
+    <script src="//www.google-analytics.com/urchin.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      _uacct = "UA-2660651-5";
+      urchinTracker();
+    </script>
+    <!-- xosus -->
+    <script src="../../static/js/jquery.min.js"></script>
+    <script src="../../static/js/bootstrap.min.js"></script> 
+    <script src="../../static/js/hogan-2.0.0.min.js"></script>
+    <script src="../../static/js/typeahead.min.js"></script>
+    <script src="../../static/js/bootstrap-editable.min.js"></script>
+    <script src="../../static/js/advertise.js"></script>    
+
+  </body>
+</html>
