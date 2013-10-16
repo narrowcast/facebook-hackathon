@@ -11,41 +11,45 @@ $(document).ready(function() {
   // Set page post headline and caption
   var title = $("title").text();
 
-  if (title.length > 0) {
-    $(".post-headline a.editable").editable('setValue', title.substring(0, 25));
-    $("input#post-headline").val(title.substring(0, 25));
-    $(".post-headline a.editable").attr('href', document.URL);
-    $(".post-caption a.editable").editable('setValue', window.location.hostname);
-    $("input#post-caption").val(window.location.hostname);
-  }
-  $(".post-headline a.editable").editable({
+  $("p.post-text").editable({
+    type: 'textarea',
+    success: function(response, newValue) {
+      $("input#post-text").val(newValue);
+    }
+  });
+  $("p.post-headline a.editable").editable({
     type: 'text',
     success: function(response, newValue) {
       $("input#post-headline").val(newValue);
     }
   });
-  $(".post-caption a.editable").editable({
+  $("p.post-caption a.editable").editable({
     type: 'text',
     success: function(response, newValue) {
       $("input#post-caption").val(newValue);
     }
   });
-  $(".post-description").editable({
-    type: 'text',
+  $("p.post-description").editable({
+    type: 'textarea',
     success: function(response, newValue) {
       $("input#post-description").val(newValue);
     }
   });
+  if (title.length > 0) {
+    $("p.post-headline a.editable").editable('setValue', title.substring(0, 25));
+    $("p.post-headline a.editable").attr('href', document.URL);
+    $("p.post-caption a.editable").editable('setValue', window.location.hostname);
+  }
   // Set page post text
   var text = $("p").text();
 
   if (text.length > 0) {
     $("p.post-text").editable('setValue', text.substring(0, 90));
-    $("input#post-text").val(text.substring(0, 90));
   }
-  $(".post-text").editable({
+  $("p.post-text").editable({
     type: 'textarea',
     success: function(response, newValue) {
+      console.log('post-text');
       $("input#post-text").val(newValue);
     }
   });

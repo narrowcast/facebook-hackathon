@@ -105,11 +105,8 @@
       $("input#post-image-url").val(image[0].src);
       $("p.post-text").editable('setValue', "Please enter your message here.");
       $("p.post-headline a.editable").editable('setValue', title.text());
-      $("input#post-headline").val(title.text());
       $("p.post-caption a.editable").editable('setValue', current_shop_name);
-      $("input#post-caption").val(current_shop_name);
       $("p.post-description").editable('setValue', description.text());
-      $("input#post-description").val(description.text());
     });
   </script>
 {% endblock %}

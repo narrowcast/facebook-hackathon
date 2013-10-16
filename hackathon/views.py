@@ -38,7 +38,7 @@ def facebook_pages(request):
         os.environ['FACEBOOK_ACCESS_TOKEN'],
         settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
     user_pages = api.get_user_pages(
-        '100000587874186', ['category', 'name', 'picture', 'likes', 'access_token'])
+        '214012', ['category', 'name', 'picture', 'likes', 'access_token'])
     for page in user_pages['data']:
         page['tokens'] = page['name'].split()
     json_data = json.dumps(user_pages['data'])
@@ -55,7 +55,7 @@ def facebook_snippets(request):
     api = facebook.AdsAPI(
         os.environ['FACEBOOK_ACCESS_TOKEN'],
         settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
-    offsite_pixels = api.get_offsite_pixels('350835701')
+    offsite_pixels = api.get_offsite_pixels('16565898')
     for pixel in offsite_pixels['data']:
         if pixel['name'] == name and pixel['tag'] == tag:
             json_data = json.dumps(pixel['js_pixel'])
@@ -119,7 +119,7 @@ def facebook_advertise(request):
         budget = request.POST['budget']
         targeting = {'countries': ['KR']}
         response = create_product_ad(
-            '350835701', page_id, link_url, post_text, post_image_url,
+            '16565898', page_id, link_url, post_text, post_image_url,
             post_headline, post_caption, post_description,
             'product_id', 1000, targeting)
         return HttpResponseRedirect('/advertise/demo_success/')
