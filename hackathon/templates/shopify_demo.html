@@ -97,17 +97,18 @@
       var handle = caption.children("p.handle");
       var title = caption.children("h4.title");
       var description = caption.children("p.description");
+      var link_url = document.location.protocol + "//{{ current_shop.domain }}/products/" + handle.text();
 
       // Update display and form fields
-      $("input#link-url").val(document.location.protocol + "//{{ current_shop.domain }}/products/" + handle.text());
+      $("input#link-url").val(link_url);
       $("img.post-image").attr('src', image[0].src);
       $("input#post-image-url").val(image[0].src);
-      $("p.post-text").text("Please enter your messsage here.");
-      $("p.post-headline .editable").text(title.text());
+      $("p.post-text").editable('setValue', "Please enter your message here.");
+      $("p.post-headline a.editable").editable('setValue', title.text());
       $("input#post-headline").val(title.text());
-      $("p.post-caption .editable").text(current_shop_name);
+      $("p.post-caption a.editable").editable('setValue', current_shop_name);
       $("input#post-caption").val(current_shop_name);
-      $("p.post-description").text(description.text());
+      $("p.post-description").editable('setValue', description.text());
       $("input#post-description").val(description.text());
     });
   </script>

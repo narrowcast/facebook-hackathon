@@ -12,10 +12,10 @@ $(document).ready(function() {
   var title = $("title").text();
 
   if (title.length > 0) {
-    $(".post-headline a.editable").text(title.substring(0, 25));
+    $(".post-headline a.editable").editable('setValue', title.substring(0, 25));
     $("input#post-headline").val(title.substring(0, 25));
     $(".post-headline a.editable").attr('href', document.URL);
-    $(".post-caption a.editable").text(window.location.hostname);
+    $(".post-caption a.editable").editable('setValue', window.location.hostname);
     $("input#post-caption").val(window.location.hostname);
   }
   $(".post-headline a.editable").editable({
@@ -40,7 +40,7 @@ $(document).ready(function() {
   var text = $("p").text();
 
   if (text.length > 0) {
-    $("p.post-text").text(text.substring(0, 90));
+    $("p.post-text").editable('setValue', text.substring(0, 90));
     $("input#post-text").val(text.substring(0, 90));
   }
   $(".post-text").editable({
