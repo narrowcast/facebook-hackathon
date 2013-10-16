@@ -99,7 +99,7 @@
       var description = caption.children("p.description");
 
       // Update display and form fields
-      $("input#link-url").val("{{ current_shop.domain }}/products/" + handle.text());
+      $("input#link-url").val(document.location.protocol + "//{{ current_shop.domain }}/products/" + handle.text());
       $("img.post-image").attr('src', image[0].src);
       $("input#post-image-url").val(image[0].src);
       $("p.post-text").text("Please enter your messsage here.");

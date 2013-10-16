@@ -18,13 +18,13 @@ $(document).ready(function() {
     $(".post-caption a.editable").text(window.location.hostname);
     $("input#post-caption").val(window.location.hostname);
   }
-  $(".post-headline").editable({
+  $(".post-headline a.editable").editable({
     type: 'text',
     success: function(response, newValue) {
       $("input#post-headline").val(newValue);
     }
   });
-  $(".post-caption .editable").editable({
+  $(".post-caption a.editable").editable({
     type: 'text',
     success: function(response, newValue) {
       $("input#post-caption").val(newValue);
