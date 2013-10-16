@@ -131,9 +131,9 @@ div#modal div.preview div.post-image-box {
 }
 /* line 127, ../scss/application.scss */
 div#modal div.preview div.post-image-box div.post-image-box-controls {
-  position: relative;
-  top: 170px;
-  left: 5px;
+  position: absolute;
+  top: 220px;
+  left: 20px;
 }
 /* line 132, ../scss/application.scss */
 div#modal div.preview div.post-image-box img.post-image {
@@ -171,4 +171,9 @@ table#ad-stats th {
 /* line 165, ../scss/application.scss */
 table#ad-stats th.text-left {
   text-align: left;
+}
+
+/* line 172, ../scss/application.scss */
+div#shopify-demo p.handle, div#shopify-demo p.description {
+  display: none;
 }

@@ -14,18 +14,25 @@
 
   function insertOffsitePixelFor(product) {
     // Send AJAX request to the Vimote server to get the pixel snippet
-    var snippet = $.get("//facebook/snippet.js", product);
+    var snippets = $.get("//localhost/facebook/snippet.js", product);
 
-    if (snippet != null) {
+    if (snippets != null) {
       // Then append the offsite conversion pixel to the head
       var head = document.getElementsByTagName('head')[0];
-      head.appendChild(snippet);
+      head.appendChild(snippets);
     }
   }
 
   if (typeof product !== 'undefined') {
     console.log("We are looking at product " + product.className + ".");
     // Insert Javascript code for key page view conversion
+    //var snippets = $.getJSON("http://localhost:8000/facebook/snippets");
+    var params = {'name': document.URL, 'tag': 'key_page_view'}
+
+    $.get('//localhost:8000/facebook/snippets', params, function(data) {
+      console.log(data);
+      $("head").append(data)
+    });
     //insertOffsitePixelFor(product, 'KEY_PAGE_VIEW');
   }
   if (isCheckoutComplete()) {

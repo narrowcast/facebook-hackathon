@@ -17,6 +17,7 @@ class LoginProtection(object):
                               secret=settings.SHOPIFY_API_SECRET)
 
     def process_view(self, request, view_func, view_args, view_kwargs):
+        #request.session.pop('shopify')
         if hasattr(request, 'session') and 'shopify' in request.session:
             shopify_session = shopify.Session(
                 request.session['shopify']['shop_url'])

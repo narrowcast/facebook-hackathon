@@ -102,6 +102,7 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'hackathon.middleware.LoginProtection',
+    'corsheaders.middleware.CorsMiddleware',
 )
 
 ROOT_URLCONF = 'hackathon.urls'
@@ -127,6 +128,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'corsheaders',
     'hackathon',
 )
 
@@ -191,3 +193,9 @@ FACEBOOK_APP_SECRET = os.environ.get('FACEBOOK_APP_SECRET')
 SHOPIFY_API_KEY = os.environ.get('SHOPIFY_API_KEY')
 SHOPIFY_API_SECRET = os.environ.get('SHOPIFY_API_SECRET')
 SHOPIFY_API_SCOPE = ['read_products', 'read_orders', 'write_script_tags']
+
+# CORS XHHR
+CORS_ORIGIN_WHITELIST = (
+    'localhost',
+    'narrowcast.myshopify.com'
+)
