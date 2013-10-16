@@ -1,46 +1,46 @@
-/* line 4, ../scss/application.scss */
+/* line 4, ../scss/modal.scss */
 body {
   position: relative;
   padding-top: 50px;
 }
 
-/* line 9, ../scss/application.scss */
+/* line 9, ../scss/modal.scss */
 footer {
   padding-bottom: 30px;
 }
 
-/* line 15, ../scss/application.scss */
+/* line 15, ../scss/modal.scss */
 div.jumbotron h1 {
   font-family: "Helvetica Neue", "MS PGothic", "Apple SD Gothic Neo";
   margin-bottom: 30px;
   line-height: 63px;
 }
-/* line 20, ../scss/application.scss */
+/* line 20, ../scss/modal.scss */
 div.jumbotron a#hack {
   margin-top: 20px;
 }
 
-/* line 26, ../scss/application.scss */
+/* line 26, ../scss/modal.scss */
 a.editable {
   color: inherit;
 }
 
-/* line 30, ../scss/application.scss */
+/* line 30, ../scss/modal.scss */
 .editable-click, a.editable-click {
   border-bottom: none;
 }
-/* line 33, ../scss/application.scss */
+/* line 33, ../scss/modal.scss */
 .editable-click:hover, a.editable-click:hover {
   background: yellow;
   border-bottom: none;
 }
 
-/* line 40, ../scss/application.scss */
+/* line 40, ../scss/modal.scss */
 .editable-container .input-sm, .editable-container .input-large {
   width: 270px;
 }
 
-/* line 45, ../scss/application.scss */
+/* line 45, ../scss/modal.scss */
 .example-modal {
   position: relative;
   padding: 45px 15px 15px;
@@ -53,7 +53,7 @@ a.editable {
   border-radius: 4px 4px 0 0;
   box-shadow: none;
 }
-/* line 57, ../scss/application.scss */
+/* line 57, ../scss/modal.scss */
 .example-modal .modal {
   position: relative;
   top: auto;
@@ -64,52 +64,52 @@ a.editable {
   display: block;
 }
 
-/* line 71, ../scss/application.scss */
+/* line 71, ../scss/modal.scss */
 div#modal div.page-typeahead img.page-picture {
   vertical-align: top;
 }
-/* line 74, ../scss/application.scss */
+/* line 74, ../scss/modal.scss */
 div#modal div.page-typeahead .page-info {
   display: inline-block;
   font-size: 12px;
   padding-left: 10px;
 }
-/* line 79, ../scss/application.scss */
+/* line 79, ../scss/modal.scss */
 div#modal div.page-typeahead .page-info .page-name {
   font-weight: bold;
   color: #627aad;
   white-space: nowrap;
 }
-/* line 86, ../scss/application.scss */
+/* line 86, ../scss/modal.scss */
 div#modal div.preview {
   font-size: 11px;
   font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
   padding: 5px;
 }
-/* line 91, ../scss/application.scss */
+/* line 91, ../scss/modal.scss */
 div#modal div.preview .editable-unsaved {
   font-weight: inherit;
 }
-/* line 94, ../scss/application.scss */
+/* line 94, ../scss/modal.scss */
 div#modal div.preview p {
   margin: 0;
 }
-/* line 97, ../scss/application.scss */
+/* line 97, ../scss/modal.scss */
 div#modal div.preview div.col-page {
   width: 60px;
   float: left;
 }
-/* line 101, ../scss/application.scss */
+/* line 101, ../scss/modal.scss */
 div#modal div.preview div.col-page img.page-picture {
   width: 50px;
   height: 50px;
 }
-/* line 106, ../scss/application.scss */
+/* line 106, ../scss/modal.scss */
 div#modal div.preview div.col-content {
   width: 400px;
   float: left;
 }
-/* line 110, ../scss/application.scss */
+/* line 110, ../scss/modal.scss */
 div#modal div.preview h5.page-name {
   color: #3b5998;
   font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
@@ -117,11 +117,11 @@ div#modal div.preview h5.page-name {
   font-size: 13px;
   margin: 0 0 15px;
 }
-/* line 117, ../scss/application.scss */
+/* line 117, ../scss/modal.scss */
 div#modal div.preview p.post-text {
   font-size: 13px;
 }
-/* line 120, ../scss/application.scss */
+/* line 120, ../scss/modal.scss */
 div#modal div.preview div.post-image-box {
   position: relative;
   width: 100%;
@@ -130,51 +130,57 @@ div#modal div.preview div.post-image-box {
   border-bottom: none;
   overflow: hidden;
 }
-/* line 128, ../scss/application.scss */
+/* line 128, ../scss/modal.scss */
 div#modal div.preview div.post-image-box div.post-image-box-controls {
   position: absolute;
   bottom: 10px;
   left: 10px;
 }
-/* line 133, ../scss/application.scss */
+/* line 133, ../scss/modal.scss */
 div#modal div.preview div.post-image-box img.post-image {
   width: 100%;
 }
-/* line 137, ../scss/application.scss */
+/* line 137, ../scss/modal.scss */
 div#modal div.preview p.post-headline {
   color: #3b5998;
   font-weight: bold;
 }
-/* line 141, ../scss/application.scss */
+/* line 141, ../scss/modal.scss */
 div#modal div.preview p.post-caption, div#modal div.preview p.post-description {
   color: gray;
 }
-/* line 144, ../scss/application.scss */
+/* line 144, ../scss/modal.scss */
 div#modal div.preview p.post-description {
   margin-top: 10px;
 }
-/* line 147, ../scss/application.scss */
+/* line 147, ../scss/modal.scss */
 div#modal div.preview div.well {
   margin-bottom: 10px;
   padding: 10px;
   border-top: none;
   border-radius: 0px;
 }
-/* line 154, ../scss/application.scss */
+/* line 154, ../scss/modal.scss */
 div#modal div.preview div.actions a {
   color: #6d84b4;
 }
 
-/* line 163, ../scss/application.scss */
+/* line 163, ../scss/modal.scss */
 table#ad-stats th {
   text-align: right;
 }
-/* line 166, ../scss/application.scss */
+/* line 166, ../scss/modal.scss */
 table#ad-stats th.text-left {
   text-align: left;
 }
 
-/* line 173, ../scss/application.scss */
+/* line 173, ../scss/modal.scss */
 div#shopify-demo p.handle, div#shopify-demo p.description {
   display: none;
+}
+
+/* line 178, ../scss/modal.scss */
+.row {
+  overflow: visible !important;
+  margin: 0px !important;
 }

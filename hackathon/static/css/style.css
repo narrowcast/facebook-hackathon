@@ -1,0 +1,371 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#container {
+	width: 1000px;
+	margin: 0 auto;
+	padding: 1px 0;
+	text-align: left;
+	}
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	/*font: 11px/1.6em "Lucida Grande", LucidaGrande, Lucida, Helvetica, Arial, sans-serif;*/
+}
+  .portdetail {
+  background: #fff url(i/ticker.gif) 50% 50% no-repeat;
+  }
+
+a { color:#666; text-decoration:none;
+}
+a:hover { color: #000; text-decoration: underline; }
+
+a:active { color: #666; }
+
+a:visited { color: #666; }
+
+h2 { color:#333;
+font-size:25px;
+margin-bottom:25px;
+margin-top:50px;
+font-weight:normal;
+}
+
+input {
+/*width:290px;*/
+font-size:15px;
+color:#666;
+}
+
+img { border:none;
+}
+img a {
+border:none;
+}
+
+
+h1 { font-family:Lucida Grande,verdana,arial,helvetica,sans-serif;
+font-size: 24px;
+color:#2aa1d7;
+}
+
+.navigation {
+    position: relative;
+margin-top:30px;
+width:1000px;
+border-bottom: thin solid #000000;
+margin-bottom:20px;
+float:left;
+}
+
+.navigation ul {
+list-style:none;
+margin-bottom:50px;
+padding:0px;
+font-size:12px;
+}
+
+.navigation li {
+float:left;
+margin-right:19px;
+padding:0px;
+}
+
+.navigation a {
+padding:0px;
+margin:0px;
+}
+
+.navigation a.header-logo {
+    position: absolute;
+    right: 0;
+    top: 7px;
+    height: 0;
+    padding-top: 23px;
+    overflow: hidden;
+    width: 130px;
+    background: url(../i/q-brand-logo-small-hrz.gif) left top no-repeat; 
+}
+.homepage .navigation a.header-logo {
+    display: none;
+}
+
+.main {
+width:750px;
+margin-left:36px;
+float:left;
+}
+
+.left-column {
+float:left;
+width:213px;
+float:left;
+margin-top:12px;
+}
+
+table {
+	width:737px;
+	text-align:left;
+	cell-spacing:20px;
+	border-collapse: collapse;
+	border: none;
+}
+
+th {
+width:751px;
+height:40px;
+
+}
+
+td {
+width:290px;
+}
+
+.furtherest {
+width:150px;
+}
+
+.furtherest p {
+margin-bottom:30px;
+}
+
+tr {
+width:750px;
+}
+
+table p {
+padding:0px;
+margin:0px;
+color:#666;
+}
+
+.description p {
+margin-bottom:30px;
+}
+
+.footer-address {
+    clear: left;
+    float:left;
+    width:350px;
+    margin-top:30px;
+}
+
+.footer-address p {
+margin-top:25px;
+color:#333;
+}
+
+.about {
+margin-top:81px;
+color:#666;
+font-size:13px;
+line-height:18px;
+}
+
+.news {
+margin-top:55px;
+}
+
+.news h3 {
+color:#333;
+font-size:11px;
+}
+
+.news ul {
+list-style:none;
+padding:0px;
+margin:0 0 0 0px;
+} 
+
+.news li {
+margin:0 0 8px 0;
+}
+
+
+.portdetail {
+margin-bottom:30px;
+}
+
+
+.portnav {
+float:left;
+width:80px;
+margin-top:30px;
+margin-left:25px;
+}
+
+
+.portnav2 {
+float:left;
+width:270px;
+margin-top:30px;
+margin-left:25px;
+text-align:right;
+}
+
+.portnav2 img{
+margin-left:5px;
+}
+
+
+.col1 {
+margin-top:25px;
+color:#333;
+float:left;
+width:350px;
+}
+
+
+.col2 {
+margin-top:25px;
+margin-left:30px;
+color:#333;
+float:left;
+width:350px;
+}
+
+.break {
+border-bottom: thin solid #000000;
+margin-bottom:20px;
+float:left;
+width:100%;
+}
+
+.col2 ul {
+list-style:none;
+padding:0px;
+margin:45px 0 0 20px;
+} 
+
+.col2 li {
+margin:0 0 8px 0;
+}
+
+
+.project-set {
+border-bottom: thin solid #000000;
+width:750px;
+float:left;
+}
+
+.item {
+width:170px;
+float:left;
+margin-right:20px;
+margin-bottom:37px;
+}
+
+body.homepage .row {
+    margin-right: -20px;
+}
+body.homepage .item {
+    margin-right: 29px;
+}
+body.homepage .far {
+    margin-right: 0;
+}
+
+.item p {
+margin:0px;
+padding:0px;
+}
+
+.far {
+margin-right:0px;
+}
+
+.item img {
+    margin-bottom:5px;
+    box-shadow: 2px 3px 5px rgba(0,0,0,0.3);
+}
+
+.first {
+clear:left;
+}
+
+.row {
+overflow:auto;
+margin-bottom:10px;
+}
+
+.portdetail ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 -20px 0 0;
+}
+
+.portdetail li {
+    padding: 0;
+    margin: 18px 19px 10px 0;
+    float: left;
+}
+
+.portdetail li:first-child {
+    margin-right: 18px;
+}
+
+body.detail .project-detail {
+    min-height: 350px;
+    padding: 1px 0 25px;
+    display: block;
+}
+
+body.detail .project-set {
+    border-bottom: none;
+}
+
+body.detail .about {
+    margin-top: 0;
+}
+
+.project-detail h2 {
+    font-size: 100%;
+}
+.project-detail h2 span.project-name {
+    font-weight: bold;
+    display: block;
+}
+
+.project-nav {
+    border-top: 1px solid #333;
+    font-size: 90%;
+}
+
+#logo {
+    display: block;
+    border: none;
+    text-decoration: none;
+}
+#logo img {
+    display: block;
+    border: none;
+}
+
+body.detail #logo {
+    width: 61px;
+    height: 70px;
+    padding-bottom: 101px;
+}
+body.detail #logo img {
+    width: 61px;
+    height: 70px;
+}
+
+.featured-project p {
+    margin-left: 597px;
+}
+
+.slideshow {
+    position: relative;
+}
+
+.featured-project .slideshow {
+    box-shadow: 2px 3px 5px rgba(0,0,0,0.3);
+}
+
+.homepage .project-set h2 {
+    margin-top: 0px;
+}

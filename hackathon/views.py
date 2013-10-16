@@ -23,6 +23,13 @@ class AdvertiseView(TemplateView):
     """View for rendering the advertise button page."""
     template_name = "advertise.html"
 
+def advertise_demo(request):
+    return render_to_response('qbrandagency_mod.html', {
+    }, context_instance=RequestContext(request))
+
+def advertise_demo_success(request):
+    return render_to_response('qbrandagency_mod_success.html', {
+    }, context_instance=RequestContext(request))
 
 def facebook_pages(request):
     """Returns the pages data for the given user as JSON."""
@@ -31,7 +38,7 @@ def facebook_pages(request):
         os.environ['FACEBOOK_ACCESS_TOKEN'],
         settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
     user_pages = api.get_user_pages(
-        '214012', ['category', 'name', 'picture', 'likes', 'access_token'])
+        '100000587874186', ['category', 'name', 'picture', 'likes', 'access_token'])
     for page in user_pages['data']:
         page['tokens'] = page['name'].split()
     json_data = json.dumps(user_pages['data'])
@@ -48,7 +55,7 @@ def facebook_snippets(request):
     api = facebook.AdsAPI(
         os.environ['FACEBOOK_ACCESS_TOKEN'],
         settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
-    offsite_pixels = api.get_offsite_pixels('16565898')
+    offsite_pixels = api.get_offsite_pixels('350835701')
     for pixel in offsite_pixels['data']:
         if pixel['name'] == name and pixel['tag'] == tag:
             json_data = json.dumps(pixel['js_pixel'])
@@ -112,10 +119,10 @@ def facebook_advertise(request):
         budget = request.POST['budget']
         targeting = {'countries': ['KR']}
         response = create_product_ad(
-            '16565898', page_id, link_url, post_text, post_image_url,
+            '350835701', page_id, link_url, post_text, post_image_url,
             post_headline, post_caption, post_description,
             'product_id', 1000, targeting)
-        return HttpResponseRedirect('/thanks/')
+        return HttpResponseRedirect('/advertise/demo_success/')
     else:
         raise Http404
 
