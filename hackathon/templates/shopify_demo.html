@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% load humanize %}
 {% load tags %}
 
@@ -8,7 +9,7 @@
     <div class="page-header">
       <h1>{{ current_shop.name }}</h1>
       <p class="lead">Advertise products from your Shopify store on Facebook.</p>
-    </div>    
+    </div>
     <section id="products">
       <h3>Products</h3>
       <div class="row">
@@ -19,8 +20,10 @@
                 <img src="{{ product.image.large }}" />
               {% endif %}
               <div class="caption">
-                <h4>{{ product.title }}</h4>
-                <p>{{ product.price_range|currency:current_shop.currency }}</p>
+                <h4 class="title">{{ product.title }}</h4>
+                <p class="handle">{{ product.handle }}</p>
+                <p class="price">{{ product.price_range|currency:current_shop.currency }}</p>
+                <p class="description">{{ product.body_html|safe }}</p>
                 <p><button class="btn btn-primary" data-toggle="modal" data-target="#modal">Advertise</button></p>
               </div>
             </div>
@@ -75,5 +78,37 @@
       </table>
     </section>
   </div>
-    
+
+{% endblock %}
+
+{% block script %}
+  <script src="{% static "js/hogan-2.0.0.min.js" %}"></script>
+  <script src="{% static "js/typeahead.min.js" %}"></script>
+  <script src="{% static "js/bootstrap-editable.min.js" %}"></script>
+  <script src="{% static "js/advertise.js" %}"></script>
+  <script type="text/javascript">
+    $("div.product button").click(function(e) {
+      // Advertise button is clicked on a product
+      var current_shop_name = "{{ current_shop.name }}";
+      var button = $(e.target);
+      var product = button.parent().parent().parent();
+      var image = product.children("img");
+      var caption = product.children("div.caption");
+      var handle = caption.children("p.handle");
+      var title = caption.children("h4.title");
+      var description = caption.children("p.description");
+
+      // Update display and form fields
+      $("input#link-url").val("{{ current_shop.domain }}/products/" + handle.text());
+      $("img.post-image").attr('src', image[0].src);
+      $("input#post-image-url").val(image[0].src);
+      $("p.post-text").text("Please enter your messsage here.");
+      $("p.post-headline .editable").text(title.text());
+      $("input#post-headline").val(title.text());
+      $("p.post-caption .editable").text(current_shop_name);
+      $("input#post-caption").val(current_shop_name);
+      $("p.post-description").text(description.text());
+      $("input#post-description").val(description.text());
+    });
+  </script>
 {% endblock %}

@@ -38,6 +38,24 @@ def facebook_pages(request):
     return HttpResponse(json_data, mimetype='application/json')
 
 
+def facebook_snippets(request):
+    """Returns the offsite pixel code with the given name and the tag."""
+    logger.info("Getting conversion pixel from Facebook.")
+    if  'name' not in request.GET or 'tag' not in request.GET:
+        raise Http404
+    name = request.GET['name']
+    tag = request.GET['tag']
+    api = facebook.AdsAPI(
+        os.environ['FACEBOOK_ACCESS_TOKEN'],
+        settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
+    offsite_pixels = api.get_offsite_pixels('16565898')
+    for pixel in offsite_pixels['data']:
+        if pixel['name'] == name and pixel['tag'] == tag:
+            json_data = json.dumps(pixel['js_pixel'])
+            return HttpResponse(json_data, mimetype='application/json')
+    raise Http404
+
+
 def create_product_ad(account_id, page_id, link, message, picture, name,
                       caption, description, product_id, daily_budget,
                       targeting):
@@ -51,7 +69,6 @@ def create_product_ad(account_id, page_id, link, message, picture, name,
         settings.FACEBOOK_APP_ID, settings.FACEBOOK_APP_SECRET)
 
     # 1. Creates an unpublished link page post
-    link = 'http://www.sthsweet.com/collections/front/products/10925'
     response = api.create_link_page_post(
         page_id, link, message, picture, name, caption, description)
     logger.info("Got response %s while creating link page post" % response)
