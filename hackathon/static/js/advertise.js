@@ -8,9 +8,6 @@ $(document).ready(function() {
   var images = $("img");
   var image_index = 0;
 
-  // Set page post headline and caption
-  var title = $("title").text();
-
   $("p.post-text").editable({
     type: 'textarea',
     success: function(response, newValue) {
@@ -33,24 +30,6 @@ $(document).ready(function() {
     type: 'textarea',
     success: function(response, newValue) {
       $("input#post-description").val(newValue);
-    }
-  });
-  if (title.length > 0) {
-    $("p.post-headline a.editable").editable('setValue', title.substring(0, 25));
-    $("p.post-headline a.editable").attr('href', document.URL);
-    $("p.post-caption a.editable").editable('setValue', window.location.hostname);
-  }
-  // Set page post text
-  var text = $("p").text();
-
-  if (text.length > 0) {
-    $("p.post-text").editable('setValue', text.substring(0, 90));
-  }
-  $("p.post-text").editable({
-    type: 'textarea',
-    success: function(response, newValue) {
-      console.log('post-text');
-      $("input#post-text").val(newValue);
     }
   });
   // Set page post image
@@ -96,9 +75,25 @@ $(document).ready(function() {
     engine: Hogan,
   }).on('typeahead:selected', function(e, v) {
     // Update Page name and picture on select
-    console.log(v.id);
     $("input#page-id").val(v.id);
     $("h5.page-name").text(v.name);
     $("img.page-picture").attr('src', v.picture.data.url);
   });
+
+  // Set page post text
+  var title = $("title").text();
+  var text = $("p").text();
+
+  // Set page post headline and caption
+  if (title.length > 0) {
+    $("p.post-headline a.editable").editable('setValue', title.substring(0, 25));
+    $("input#post-headline").val(title.substring(0, 25));
+    $("p.post-headline a.editable").attr('href', document.URL);
+    $("p.post-caption a.editable").editable('setValue', window.location.hostname);
+    $("input#post-caption").val(window.location.hostname);
+  }
+  if (text.length > 0) {
+    $("p.post-text").editable('setValue', text.substring(0, 90));
+    $("input#post-text").val(text.substring(0, 90));
+  }
 });

@@ -77,7 +77,8 @@ def create_product_ad(account_id, page_id, link, message, picture, name,
 
     # 1. Creates an unpublished link page post
     response = api.create_link_page_post(
-        page_id, link, message, picture, name, caption, description)
+        page_id, link, message.encode('utf-8'), picture, name,
+        caption.encode('utf-8'), description.encode('utf-8'))
     logger.info("Got response %s while creating link page post" % response)
     page_post_id = response['id']
     story_id = page_post_id.split('_')[-1]
@@ -122,7 +123,7 @@ def facebook_advertise(request):
             '16565898', page_id, link_url, post_text, post_image_url,
             post_headline, post_caption, post_description,
             'product_id', 1000, targeting)
-        return HttpResponseRedirect('/advertise/demo_success/')
+        return HttpResponseRedirect('/thanks/')
     else:
         raise Http404
 
